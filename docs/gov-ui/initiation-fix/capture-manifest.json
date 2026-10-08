@@ -1,0 +1,488 @@
+[
+  {
+    "name": "draft-1440",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "draft-1440-part0.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1976,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      },
+      {
+        "file": "draft-1440-part1.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1976,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "draft-1440-part2.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1976,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 1100.6666259765625
+      }
+    ]
+  },
+  {
+    "name": "draft-768",
+    "width": 768,
+    "frames": [
+      {
+        "file": "draft-768-part0.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1968,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      },
+      {
+        "file": "draft-768-part1.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1968,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "draft-768-part2.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1968,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 1092.6666259765625
+      }
+    ]
+  },
+  {
+    "name": "draft-375",
+    "width": 375,
+    "frames": [
+      {
+        "file": "draft-375-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2374,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "draft-375-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2374,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "draft-375-part2.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2374,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 1498.6666259765625
+      }
+    ]
+  },
+  {
+    "name": "partial-1440",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "partial-1440-part0.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2124,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      },
+      {
+        "file": "partial-1440-part1.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2124,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "partial-1440-part2.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2124,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 1248.6666259765625
+      }
+    ]
+  },
+  {
+    "name": "partial-768",
+    "width": 768,
+    "frames": [
+      {
+        "file": "partial-768-part0.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2116,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      },
+      {
+        "file": "partial-768-part1.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2116,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "partial-768-part2.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2116,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 1240.6666259765625
+      }
+    ]
+  },
+  {
+    "name": "partial-375",
+    "width": 375,
+    "frames": [
+      {
+        "file": "partial-375-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2522,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "partial-375-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2522,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "partial-375-part2.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2522,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 1646.6666259765625
+      }
+    ]
+  },
+  {
+    "name": "complete-1440",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "complete-1440-part0.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2149,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      },
+      {
+        "file": "complete-1440-part1.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2149,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "complete-1440-part2.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2149,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 1273.3333740234375
+      }
+    ]
+  },
+  {
+    "name": "complete-768",
+    "width": 768,
+    "frames": [
+      {
+        "file": "complete-768-part0.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2141,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      },
+      {
+        "file": "complete-768-part1.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2141,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "complete-768-part2.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2141,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 1265.3333740234375
+      }
+    ]
+  },
+  {
+    "name": "complete-375",
+    "width": 375,
+    "frames": [
+      {
+        "file": "complete-375-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2525,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "complete-375-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2525,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "complete-375-part2.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2525,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 1649.3333740234375
+      }
+    ]
+  },
+  {
+    "name": "readonly-1440",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "readonly-1440-part0.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1045,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      },
+      {
+        "file": "readonly-1440-part1.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1045,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 170
+      }
+    ]
+  },
+  {
+    "name": "readonly-768",
+    "width": 768,
+    "frames": [
+      {
+        "file": "readonly-768-part0.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1037,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      },
+      {
+        "file": "readonly-768-part1.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1037,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 162
+      }
+    ]
+  },
+  {
+    "name": "readonly-375",
+    "width": 375,
+    "frames": [
+      {
+        "file": "readonly-375-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1181,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "readonly-375-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1181,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 305.3333435058594
+      }
+    ]
+  },
+  {
+    "name": "no-documents-1440",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "no-documents-1440-part0.png",
+        "client": 1440,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 875,
+        "scroll": 1440,
+        "sidebar": 1202,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      }
+    ]
+  },
+  {
+    "name": "no-documents-768",
+    "width": 768,
+    "frames": [
+      {
+        "file": "no-documents-768-part0.png",
+        "client": 768,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 875,
+        "scroll": 768,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      }
+    ]
+  },
+  {
+    "name": "no-documents-375",
+    "width": 375,
+    "frames": [
+      {
+        "file": "no-documents-375-part0.png",
+        "client": 375,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 875,
+        "scroll": 375,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      }
+    ]
+  }
+]

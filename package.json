@@ -1,0 +1,6 @@
+{
+  "name": "workflow-e2e",
+  "private": true,
+  "scripts": { "test:e2e": "playwright test --config playwright.config.cjs" },
+  "devDependencies": { "playwright": "1.62.1" }
+}

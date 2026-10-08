@@ -1,0 +1,1304 @@
+[
+  {
+    "name": "after-login-desktop",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "after-login-desktop-part0.png",
+        "client": 1440,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 875,
+        "rubik": true,
+        "scroll": 1440,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      }
+    ]
+  },
+  {
+    "name": "after-login-tablet",
+    "width": 768,
+    "frames": [
+      {
+        "file": "after-login-tablet-part0.png",
+        "client": 768,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 875,
+        "rubik": true,
+        "scroll": 768,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      }
+    ]
+  },
+  {
+    "name": "after-login-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-login-mobile-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1057,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "after-login-mobile-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1057,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 181.3333282470703
+      }
+    ]
+  },
+  {
+    "name": "after-provider-detail-desktop",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "after-provider-detail-desktop-part0.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1888,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      },
+      {
+        "file": "after-provider-detail-desktop-part1.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1888,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "after-provider-detail-desktop-part2.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1888,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 1012.6666870117188
+      }
+    ]
+  },
+  {
+    "name": "after-provider-detail-tablet",
+    "width": 768,
+    "frames": [
+      {
+        "file": "after-provider-detail-tablet-part0.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1971,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      },
+      {
+        "file": "after-provider-detail-tablet-part1.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1971,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "after-provider-detail-tablet-part2.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1971,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 1095.3333740234375
+      }
+    ]
+  },
+  {
+    "name": "after-provider-detail-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-provider-detail-mobile-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2473,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "after-provider-detail-mobile-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2473,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "after-provider-detail-mobile-part2.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2473,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 1598
+      }
+    ]
+  },
+  {
+    "name": "after-members-desktop",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "after-members-desktop-part0.png",
+        "client": 1440,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 875,
+        "rubik": true,
+        "scroll": 1440,
+        "sidebar": 1202,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      }
+    ]
+  },
+  {
+    "name": "after-members-tablet",
+    "width": 768,
+    "frames": [
+      {
+        "file": "after-members-tablet-part0.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1166,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      },
+      {
+        "file": "after-members-tablet-part1.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1166,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 290.6666564941406
+      }
+    ]
+  },
+  {
+    "name": "after-members-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-members-mobile-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1307,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "after-members-mobile-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1307,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 431.3333435058594
+      }
+    ]
+  },
+  {
+    "name": "after-account-form-desktop",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "after-account-form-desktop-part0.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1499,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      },
+      {
+        "file": "after-account-form-desktop-part1.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1499,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 624
+      }
+    ]
+  },
+  {
+    "name": "after-account-form-tablet",
+    "width": 768,
+    "frames": [
+      {
+        "file": "after-account-form-tablet-part0.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1804,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      },
+      {
+        "file": "after-account-form-tablet-part1.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1804,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "after-account-form-tablet-part2.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1804,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 928.6666870117188
+      }
+    ]
+  },
+  {
+    "name": "after-account-form-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-account-form-mobile-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2297,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "after-account-form-mobile-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2297,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "after-account-form-mobile-part2.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2297,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 1422
+      }
+    ]
+  },
+  {
+    "name": "preserved-organization-desktop",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "preserved-organization-desktop-part0.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 959,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      },
+      {
+        "file": "preserved-organization-desktop-part1.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 959,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 84
+      }
+    ]
+  },
+  {
+    "name": "preserved-organization-tablet",
+    "width": 768,
+    "frames": [
+      {
+        "file": "preserved-organization-tablet-part0.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1019,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      },
+      {
+        "file": "preserved-organization-tablet-part1.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1019,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 144
+      }
+    ]
+  },
+  {
+    "name": "preserved-organization-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "preserved-organization-mobile-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1351,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "preserved-organization-mobile-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1351,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 476
+      }
+    ]
+  },
+  {
+    "name": "after-unit-form-desktop",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "after-unit-form-desktop-part0.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1279,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      },
+      {
+        "file": "after-unit-form-desktop-part1.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1279,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 404
+      }
+    ]
+  },
+  {
+    "name": "after-unit-form-tablet",
+    "width": 768,
+    "frames": [
+      {
+        "file": "after-unit-form-tablet-part0.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1339,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      },
+      {
+        "file": "after-unit-form-tablet-part1.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1339,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 464
+      }
+    ]
+  },
+  {
+    "name": "after-unit-form-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-unit-form-mobile-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1766,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "after-unit-form-mobile-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1766,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "after-unit-form-mobile-part2.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1766,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 890.6666870117188
+      }
+    ]
+  },
+  {
+    "name": "after-routing-desktop",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "after-routing-desktop-part0.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1281,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      },
+      {
+        "file": "after-routing-desktop-part1.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1281,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 406
+      }
+    ]
+  },
+  {
+    "name": "after-routing-tablet",
+    "width": 768,
+    "frames": [
+      {
+        "file": "after-routing-tablet-part0.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1333,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      },
+      {
+        "file": "after-routing-tablet-part1.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1333,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 458
+      }
+    ]
+  },
+  {
+    "name": "after-routing-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-routing-mobile-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1590,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "after-routing-mobile-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1590,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 714.6666870117188
+      }
+    ]
+  },
+  {
+    "name": "after-rule-form-desktop",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "after-rule-form-desktop-part0.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2073,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      },
+      {
+        "file": "after-rule-form-desktop-part1.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2073,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "after-rule-form-desktop-part2.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2073,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 1197.3333740234375
+      }
+    ]
+  },
+  {
+    "name": "after-rule-form-tablet",
+    "width": 768,
+    "frames": [
+      {
+        "file": "after-rule-form-tablet-part0.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2125,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      },
+      {
+        "file": "after-rule-form-tablet-part1.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2125,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "after-rule-form-tablet-part2.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2125,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 1249.3333740234375
+      }
+    ]
+  },
+  {
+    "name": "after-rule-form-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-rule-form-mobile-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2661,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "after-rule-form-mobile-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2661,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "after-rule-form-mobile-part2.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2661,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 1750.6666259765625
+      },
+      {
+        "file": "after-rule-form-mobile-part3.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2661,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 1786
+      }
+    ]
+  },
+  {
+    "name": "after-routing-preview-desktop",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "after-routing-preview-desktop-part0.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1539,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      },
+      {
+        "file": "after-routing-preview-desktop-part1.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1539,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 664
+      }
+    ]
+  },
+  {
+    "name": "after-routing-preview-tablet",
+    "width": 768,
+    "frames": [
+      {
+        "file": "after-routing-preview-tablet-part0.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1591,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      },
+      {
+        "file": "after-routing-preview-tablet-part1.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1591,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 716
+      }
+    ]
+  },
+  {
+    "name": "after-routing-preview-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-routing-preview-mobile-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1985,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "after-routing-preview-mobile-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1985,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "after-routing-preview-mobile-part2.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1985,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 1110
+      }
+    ]
+  },
+  {
+    "name": "after-tasks-desktop",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "after-tasks-desktop-part0.png",
+        "client": 1440,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 875,
+        "rubik": true,
+        "scroll": 1440,
+        "sidebar": 1202,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      }
+    ]
+  },
+  {
+    "name": "after-tasks-tablet",
+    "width": 768,
+    "frames": [
+      {
+        "file": "after-tasks-tablet-part0.png",
+        "client": 768,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 875,
+        "rubik": true,
+        "scroll": 768,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      }
+    ]
+  },
+  {
+    "name": "after-tasks-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-tasks-mobile-part0.png",
+        "client": 375,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 875,
+        "rubik": true,
+        "scroll": 375,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      }
+    ]
+  },
+  {
+    "name": "after-providers-desktop",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "after-providers-desktop-part0.png",
+        "client": 1440,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 875,
+        "rubik": true,
+        "scroll": 1440,
+        "sidebar": 1202,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      }
+    ]
+  },
+  {
+    "name": "after-providers-tablet",
+    "width": 768,
+    "frames": [
+      {
+        "file": "after-providers-tablet-part0.png",
+        "client": 768,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 875,
+        "rubik": true,
+        "scroll": 768,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      }
+    ]
+  },
+  {
+    "name": "after-providers-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-providers-mobile-part0.png",
+        "client": 375,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 875,
+        "rubik": true,
+        "scroll": 375,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      }
+    ]
+  },
+  {
+    "name": "after-dashboard-desktop",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "after-dashboard-desktop-part0.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1508,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      },
+      {
+        "file": "after-dashboard-desktop-part1.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1508,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 632.6666870117188
+      }
+    ]
+  },
+  {
+    "name": "after-dashboard-tablet",
+    "width": 768,
+    "frames": [
+      {
+        "file": "after-dashboard-tablet-part0.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1995,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      },
+      {
+        "file": "after-dashboard-tablet-part1.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1995,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "after-dashboard-tablet-part2.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1995,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 1119.3333740234375
+      }
+    ]
+  },
+  {
+    "name": "after-dashboard-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-dashboard-mobile-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2119,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "after-dashboard-mobile-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2119,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "after-dashboard-mobile-part2.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2119,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 1244
+      }
+    ]
+  },
+  {
+    "name": "after-tasks",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-tasks-part0.png",
+        "client": 375,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 875,
+        "rubik": true,
+        "scroll": 375,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      }
+    ]
+  },
+  {
+    "name": "after-provider-detail",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-provider-detail-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2533,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "after-provider-detail-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2533,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "after-provider-detail-part2.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2533,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 1657.3333740234375
+      }
+    ]
+  },
+  {
+    "name": "after-members",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-members-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1307,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "after-members-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1307,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 431.3333435058594
+      }
+    ]
+  },
+  {
+    "name": "after-account-form",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-account-form-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2333,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "after-account-form-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2333,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "after-account-form-part2.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2333,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 1457.3333740234375
+      }
+    ]
+  },
+  {
+    "name": "after-unit-form",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-unit-form-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1766,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "after-unit-form-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1766,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "after-unit-form-part2.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1766,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 890.6666870117188
+      }
+    ]
+  }
+]

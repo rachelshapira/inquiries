@@ -1,0 +1,24 @@
+{
+  "scope": "Process initiation authorization and configured draft/document journey only",
+  "backendBuild": "passed; NU1900 vulnerability feed unavailable warning",
+  "frontendProductionBuild": "passed strict Angular compilation and minified bundle",
+  "existingApiChecksPassed": 43,
+  "newAuthorizationChecksPassed": 9,
+  "presentationChecksPassed": 10,
+  "realBrowserE2E": "passed using existing Playwright scenario through supported in-app adapter",
+  "e2eInquiry": 26,
+  "secureDownloads": "Both uploaded PDFs byte-verified for owner; unrelated provider rejected with 403",
+  "axeAudits": 9,
+  "axeViolations": 0,
+  "pageOverflow": false,
+  "widths": [
+    1440,
+    768,
+    375
+  ],
+  "unitTests": "blocked before execution by esbuild spawn EPERM; unchanged test configuration",
+  "inlinePreview": "deferred separate enhancement",
+  "databaseSchemaChanged": false,
+  "workflowSchemaChanged": false,
+  "newDependencies": false
+}

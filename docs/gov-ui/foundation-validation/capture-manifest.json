@@ -1,0 +1,794 @@
+[
+  {
+    "name": "after-detail-desktop",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "after-detail-desktop-part0.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1101,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      },
+      {
+        "file": "after-detail-desktop-part1.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1101,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 225.3333282470703
+      }
+    ]
+  },
+  {
+    "name": "after-detail-tablet",
+    "width": 768,
+    "frames": [
+      {
+        "file": "after-detail-tablet-part0.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1093,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      },
+      {
+        "file": "after-detail-tablet-part1.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1093,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 217.3333282470703
+      }
+    ]
+  },
+  {
+    "name": "after-detail-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-detail-mobile-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1219,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "after-detail-mobile-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1219,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 344
+      }
+    ]
+  },
+  {
+    "name": "after-queue-desktop",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "after-queue-desktop-part0.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1303,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      },
+      {
+        "file": "after-queue-desktop-part1.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1303,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 427.3333435058594
+      }
+    ]
+  },
+  {
+    "name": "after-queue-tablet",
+    "width": 768,
+    "frames": [
+      {
+        "file": "after-queue-tablet-part0.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1384,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      },
+      {
+        "file": "after-queue-tablet-part1.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1384,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 508.6666564941406
+      }
+    ]
+  },
+  {
+    "name": "after-queue-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-queue-mobile-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2161,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "after-queue-mobile-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2161,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "after-queue-mobile-part2.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2161,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 1285.3333740234375
+      }
+    ]
+  },
+  {
+    "name": "after-create-desktop",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "after-create-desktop-part0.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1279,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      },
+      {
+        "file": "after-create-desktop-part1.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1279,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 404
+      }
+    ]
+  },
+  {
+    "name": "after-create-tablet",
+    "width": 768,
+    "frames": [
+      {
+        "file": "after-create-tablet-part0.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1271,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      },
+      {
+        "file": "after-create-tablet-part1.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1271,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 396
+      }
+    ]
+  },
+  {
+    "name": "after-create-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-create-mobile-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1596,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "after-create-mobile-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1596,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 720.6666870117188
+      }
+    ]
+  },
+  {
+    "name": "after-workflow-desktop",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "after-workflow-desktop-part0.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1575,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      },
+      {
+        "file": "after-workflow-desktop-part1.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1575,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 700
+      }
+    ]
+  },
+  {
+    "name": "after-workflow-tablet",
+    "width": 768,
+    "frames": [
+      {
+        "file": "after-workflow-tablet-part0.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2395,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      },
+      {
+        "file": "after-workflow-tablet-part1.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2395,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "after-workflow-tablet-part2.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2395,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 1520
+      }
+    ]
+  },
+  {
+    "name": "after-workflow-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "after-workflow-mobile-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2645,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "after-workflow-mobile-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2645,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "after-workflow-mobile-part2.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2645,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 1750.6666259765625
+      },
+      {
+        "file": "after-workflow-mobile-part3.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2645,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 1769.3333740234375
+      }
+    ]
+  },
+  {
+    "name": "state-workflow-selected-transition-desktop",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "state-workflow-selected-transition-desktop-part0.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2103,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      },
+      {
+        "file": "state-workflow-selected-transition-desktop-part1.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2103,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "state-workflow-selected-transition-desktop-part2.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2103,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 1228
+      }
+    ]
+  },
+  {
+    "name": "state-workflow-selected-transition-tablet",
+    "width": 768,
+    "frames": [
+      {
+        "file": "state-workflow-selected-transition-tablet-part0.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 3188,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 0
+      },
+      {
+        "file": "state-workflow-selected-transition-tablet-part1.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 3188,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "state-workflow-selected-transition-tablet-part2.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 3188,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 1750.6666259765625
+      },
+      {
+        "file": "state-workflow-selected-transition-tablet-part3.png",
+        "client": 753,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 3188,
+        "rubik": true,
+        "scroll": 753,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 768,
+        "y": 2312.666748046875
+      }
+    ]
+  },
+  {
+    "name": "state-workflow-selected-transition-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "state-workflow-selected-transition-mobile-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 3523,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "state-workflow-selected-transition-mobile-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 3523,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "state-workflow-selected-transition-mobile-part2.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 3523,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 1750.6666259765625
+      },
+      {
+        "file": "state-workflow-selected-transition-mobile-part3.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 3523,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 2626
+      },
+      {
+        "file": "state-workflow-selected-transition-mobile-part4.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 3523,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 2648
+      }
+    ]
+  },
+  {
+    "name": "state-workflow-long-name-desktop",
+    "width": 1440,
+    "frames": [
+      {
+        "file": "state-workflow-long-name-desktop-part0.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1575,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 0
+      },
+      {
+        "file": "state-workflow-long-name-desktop-part1.png",
+        "client": 1425,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1575,
+        "rubik": true,
+        "scroll": 1425,
+        "sidebar": 1186.666748046875,
+        "viewportHeight": 875,
+        "width": 1440,
+        "y": 700
+      }
+    ]
+  },
+  {
+    "name": "state-workflow-long-name-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "state-workflow-long-name-mobile-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2685,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "state-workflow-long-name-mobile-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2685,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "state-workflow-long-name-mobile-part2.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2685,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 1750.6666259765625
+      },
+      {
+        "file": "state-workflow-long-name-mobile-part3.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 2685,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 1810
+      }
+    ]
+  },
+  {
+    "name": "state-workflow-conditions-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "state-workflow-conditions-mobile-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 4839,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "state-workflow-conditions-mobile-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 4839,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "state-workflow-conditions-mobile-part2.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 4839,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 1750.6666259765625
+      },
+      {
+        "file": "state-workflow-conditions-mobile-part3.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 4839,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 2626
+      },
+      {
+        "file": "state-workflow-conditions-mobile-part4.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 4839,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 3501.333251953125
+      },
+      {
+        "file": "state-workflow-conditions-mobile-part5.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 4839,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 3963.333251953125
+      }
+    ]
+  },
+  {
+    "name": "state-detail-missing-optional-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "state-detail-missing-optional-mobile-part0.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1919,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      },
+      {
+        "file": "state-detail-missing-optional-mobile-part1.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1919,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 875.3333129882812
+      },
+      {
+        "file": "state-detail-missing-optional-mobile-part2.png",
+        "client": 360,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 1919,
+        "rubik": true,
+        "scroll": 360,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 1043.3333740234375
+      }
+    ]
+  },
+  {
+    "name": "state-detail-no-documents-mobile",
+    "width": 375,
+    "frames": [
+      {
+        "file": "state-detail-no-documents-mobile-part0.png",
+        "client": 375,
+        "font": "Rubik, \"Segoe UI\", Arial, sans-serif",
+        "height": 875,
+        "rubik": true,
+        "scroll": 375,
+        "sidebar": null,
+        "viewportHeight": 875,
+        "width": 375,
+        "y": 0
+      }
+    ]
+  }
+]

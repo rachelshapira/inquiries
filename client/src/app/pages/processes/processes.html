@@ -1,0 +1,815 @@
+<article class="service-page service-builder">
+<div class="page-heading">
+  <div>
+    <p class="eyebrow">ניהול המערכת</p>
+    <h1>בונה התהליכים</h1>
+    <p class="muted">כל שלב, מי רשאי לפעול בו ולאן הפנייה עוברת.</p>
+  </div>
+  <button class="secondary" [disabled]="api.pending() > 0" (click)="startNew()">
+    <app-icon name="plus" />תהליך חדש
+  </button>
+</div>
+@if (api.session()?.user?.role !== 'Admin') {
+  <p class="note">מסך זה מיועד למנהל מערכת.</p>
+} @else {
+  <section class="panel process-picker">
+    <label
+      >תהליך קיים<select
+        #processSelect
+        [value]="selectedProcessId()"
+        (change)="
+          selectById(+processSelect.value); processSelect.value = selectedProcessId().toString()
+        "
+      >
+        <option value="0" disabled>תהליך חדש, טרם פורסם</option>
+        @for (p of items(); track p.id) {
+          <option [value]="p.id" [selected]="selectedProcessId() === p.id">
+            {{ p.definition.name }} · גרסה {{ p.number }}
+          </option>
+        }
+      </select></label
+    ><button class="secondary" [disabled]="!definition()" (click)="clone()">
+      שכפול לתהליך חדש
+    </button>
+  </section>
+  @if (definition(); as d) {
+    <ng-template #payloadSamples
+      ><div class="form-grid payload-samples" [formGroup]="sampleData">
+        @for (field of d.fields; track field.key) {
+          <label
+            >{{ field.label }}
+            @if (field.type === 'textarea') {
+              <textarea
+                [formControlName]="field.key"
+                (input)="sampleChanged()"
+                maxlength="4000"
+              ></textarea>
+            } @else {
+              <input
+                [type]="field.type"
+                [formControlName]="field.key"
+                (input)="sampleChanged()"
+                maxlength="4000"
+              />
+            }
+          </label>
+        }
+      </div>
+      <p class="form-help">
+        נתוני בדיקה בלבד. הבדיקה אינה שומרת פנייה ואינה מבצעת את הפעולה.
+      </p></ng-template
+    >
+
+    <div class="workflow-context">
+      <div>
+        <strong>{{ d.name || 'תהליך חדש' }}</strong
+        ><span class="muted">{{ base() ? 'מבוסס על גרסה ' + base() : 'טרם פורסם' }}</span>
+      </div>
+      <span class="badge" [attr.data-state]="dirty() ? 'corrections' : 'draft'">{{
+        dirty() ? 'טיוטה · שינויים שטרם פורסמו' : base() ? 'גרסה מפורסמת' : 'טיוטה חדשה'
+      }}</span>
+    </div>
+    <nav class="workflow-steps" aria-label="שלבי בניית התהליך">
+      @for (step of steps; track $index; let i = $index) {
+        <button
+          [class.active]="editorStep() === i"
+          [attr.aria-current]="editorStep() === i ? 'step' : null"
+          (click)="editorStep.set(i)"
+        >
+          <span>{{ i + 1 }}</span
+          >{{ step }}
+        </button>
+      }
+    </nav>
+    @if (editorStep() === 0) {
+      <section class="panel">
+        <h2>מה התהליך מנהל?</h2>
+        <label
+          >שם התהליך <small>השם שיופיע בעת פתיחת פנייה</small
+          ><input
+            #processName
+            [value]="d.name"
+            (input)="patch({ name: processName.value })"
+            placeholder="לדוגמה: בקשה לאישור שירות"
+            maxlength="120"
+            [attr.aria-invalid]="attempted() && !d.name.trim()"
+          />
+          @if (attempted() && !d.name.trim()) {
+            <span class="field-error">יש להזין שם לתהליך.</span>
+          }
+        </label>
+        <details class="disclosure">
+          <summary>מזהה התהליך</summary>
+          <label
+            >מזהה קבוע באנגלית<input [formControl]="key" dir="ltr" (input)="basicChanged()" /><small
+              >נוצר אוטומטית לתהליך חדש ומשמש לזיהוי התהליך במערכת.</small
+            ></label
+          >
+        </details>
+        <p class="note">
+          הגדירו שלבים, פעולות והרשאות לפי צורכי התהליך. פרסום יוצר גרסה חדשה; פניות קיימות ממשיכות בגרסתן.
+        </p>
+      </section>
+    }
+    @if (editorStep() === 1) {
+      <div class="workflow-builder">
+        <div class="workflow-canvas">
+      <section class="panel workflow-map">
+        <div class="panel-head">
+          <div>
+            <h2>מפת התהליך</h2>
+            <p class="panel-subtitle">בחרו שלב או חץ במפה. ההגדרות יופיעו בחלונית העריכה.</p>
+          </div>
+          <button class="secondary" (click)="addState()"><app-icon name="plus" />הוספת שלב</button>
+        </div>
+        <div class="workflow-map-legend">
+          <span class="badge">התחלה</span><span class="badge" data-state="approved">סיום</span
+          ><span class="muted">חזרה לשלב קודם מופיעה כיעד של הפעולה</span>
+        </div>
+        <app-process-graph
+          [definition]="d"
+          [selected]="selectedState()"
+          [selectedAction]="selectedTransition()"
+          (stateSelected)="chooseState($event)"
+          (actionSelected)="chooseTransition($event)"
+        />
+      </section>
+        <section class="panel workflow-map">
+          <h2>מעברים מ־{{ stateName(selectedState()) }}</h2>
+          <div class="workflow-nodes focused-node">
+            @for (s of d.states; track s.key) {
+              @if (s.key === selectedState()) {
+                <article
+                  class="workflow-node"
+                  [class.selected]="selectedState() === s.key"
+                  [class.unreachable]="!reachable().has(s.key)"
+                >
+                  <button
+                    class="workflow-node-title"
+                    [attr.aria-pressed]="selectedState() === s.key"
+                    (click)="chooseState(s.key)"
+                  >
+                    <span class="node-dot" [class.terminal]="s.terminal"
+                      ><app-icon [name]="s.terminal ? 'check' : 'workflow'" /></span
+                    ><strong>{{ s.label || 'שלב ללא שם' }}</strong>
+                    @if (s.key === d.initialState) {
+                      <span class="badge">התחלה</span>
+                    }
+                    @if (s.terminal) {
+                      <span class="badge" data-state="approved">סיום</span>
+                    }
+                  </button>
+                  @if (!reachable().has(s.key)) {
+                    <p class="field-error">אין עדיין מסלול שמוביל לשלב זה.</p>
+                  }
+                  <div class="workflow-edges">
+                    @for (edge of outgoing(s.key); track edge.index) {
+                      <button
+                        class="workflow-edge"
+                        [class.selected]="selectedTransition() === edge.index"
+                        (click)="chooseTransition(edge.index)"
+                      >
+                        <span class="edge-action"
+                          ><strong>{{ edge.transition.label || 'פעולה ללא שם' }}</strong
+                          ><small>{{ roleNames(edge.transition.roles) }}</small></span
+                        ><app-icon name="arrow" /><span class="edge-target">{{
+                          edge.transition.routes?.length
+                            ? 'הכרעה לפי נתוני הפנייה'
+                            : stateName(edge.transition.to)
+                        }}</span>
+                      </button>
+                      @if (edge.transition.routes?.length) {
+                        <div class="payload-map-routes">
+                          @for (route of sortedRoutes(edge.transition); track route.key) {
+                            <button
+                              class="payload-map-route"
+                              (click)="chooseTransition(edge.index)"
+                            >
+                              <span
+                                ><strong>{{ route.label }}</strong
+                                ><small>{{ routeDescription(route) }}</small></span
+                              ><app-icon name="arrow" /><span>{{ stateName(route.to) }}</span>
+                            </button>
+                          }
+                          <div class="payload-default">
+                            <small>אחרת — ברירת מחדל</small
+                            ><strong>{{ stateName(edge.transition.to) }}</strong>
+                          </div>
+                        </div>
+                      }
+                    } @empty {
+                      <p class="node-empty">
+                        {{
+                          s.terminal
+                            ? 'כאן מסתיים הטיפול.'
+                            : 'אין פעולות יוצאות. בחרו בשלב והוסיפו פעולה.'
+                        }}
+                      </p>
+                    }
+                  </div>
+                </article>
+              }
+            }
+          </div>
+        </section>
+        </div>
+        <aside class="panel workflow-inspector" aria-label="עורך השלב והמעברים">
+          <button class="text-button inspector-mobile-back" (click)="backToMap()">
+            <app-icon name="arrow" /> חזרה למפת התהליך
+          </button>
+          @if (currentTransition(); as t) {
+            <div class="panel-head">
+              <h2 tabindex="-1">עריכת פעולה</h2>
+              <button
+                class="icon-button"
+                aria-label="חזרה לפרטי השלב"
+                (click)="selectedTransition.set(null)"
+              >
+                <app-icon name="close" />
+              </button>
+            </div>
+            <p class="inspector-route">
+              {{ stateName(t.from) }} <app-icon name="arrow" /> {{ stateName(t.to) }}
+            </p>
+            <div class="stack">
+              <label
+                >שם הפעולה<input
+                  #actionLabel
+                  [value]="t.label"
+                  (input)="transition(selectedTransition()!, { label: actionLabel.value })"
+                  maxlength="120"
+                /><small>השם שיופיע על כפתור הפעולה בפנייה.</small></label
+              ><label
+                >יעד ברירת מחדל<select
+                  #target
+                  [value]="t.to"
+                  (change)="transition(selectedTransition()!, { to: target.value })"
+                >
+                  @for (s of d.states; track s.key) {
+                    <option [value]="s.key" [selected]="s.key === t.to">{{ s.label }}</option>
+                  }
+                </select></label
+              >
+
+              <details class="disclosure inspector-group" [open]="!!t.routes?.length || t.guard !== 'none'">
+                <summary>תנאים ומסלולים</summary>
+              <section class="payload-rules" aria-label="מסלולים לפי נתוני הפנייה">
+                <div class="panel-head">
+                  <div>
+                    <h3>מסלולים לפי נתוני הפנייה</h3>
+                    <p class="form-help">
+                      המסלול הראשון שתנאיו מתקיימים קובע את השלב הבא. מספר עדיפות נמוך נבדק קודם;
+                      בשוויון, המזהה הקבוע קובע את הסדר.
+                    </p>
+                  </div>
+                </div>
+                @for (route of sortedRoutes(t); track route.key) {
+                  <details class="payload-route-editor" [open]="expandedRoute() === route.key">
+                    <summary>
+                      {{ route.priority }} · {{ route.label
+                      }}<small>אל {{ stateName(route.to) }}</small>
+                    </summary>
+                    <div class="stack">
+                      <label
+                        >שם המסלול<input
+                          #routeLabel
+                          [value]="route.label"
+                          maxlength="120"
+                          (input)="
+                            patchPayloadRoute(route.key, { label: routeLabel.value })
+                          " /></label
+                      ><label
+                        >עדיפות<input
+                          #routePriority
+                          type="number"
+                          [value]="route.priority"
+                          min="0"
+                          max="100000"
+                          (input)="
+                            patchPayloadRoute(route.key, { priority: routePriority.valueAsNumber })
+                          " /></label
+                      ><label
+                        >שלב היעד<select
+                          #routeTarget
+                          [value]="route.to"
+                          (change)="patchPayloadRoute(route.key, { to: routeTarget.value })"
+                        >
+                          @for (stage of d.states; track stage.key) {
+                            <option [value]="stage.key" [selected]="stage.key === route.to">
+                              {{ stage.label }}
+                            </option>
+                          }
+                        </select></label
+                      ><label
+                        >מתי לבחור במסלול?<select
+                          #routeMatchChoice
+                          [value]="route.when.match"
+                          (change)="routeMatch(route, routeMatchChoice.value)"
+                        >
+                          <option value="all" [selected]="route.when.match === 'all'">
+                            כל התנאים מתקיימים — וגם
+                          </option>
+                          <option value="any" [selected]="route.when.match === 'any'">
+                            לפחות תנאי אחד מתקיים — או
+                          </option>
+                        </select></label
+                      >
+                      @for (condition of route.when.conditions; track $index; let ci = $index) {
+                        <fieldset class="payload-condition">
+                          <legend>תנאי {{ ci + 1 }}</legend>
+                          <div class="stack">
+                            <label
+                              >שדה בפנייה<select
+                                #payloadFieldChoice
+                                [value]="condition.field"
+                                (change)="
+                                  routeCondition(route, ci, { field: payloadFieldChoice.value })
+                                "
+                              >
+                                @for (field of d.fields; track field.key) {
+                                  <option
+                                    [value]="field.key"
+                                    [selected]="condition.field === field.key"
+                                  >
+                                    {{ field.label }} ·
+                                    {{
+                                      field.type === 'number'
+                                        ? 'מספר'
+                                        : field.type === 'date'
+                                          ? 'תאריך'
+                                          : 'טקסט'
+                                    }}
+                                  </option>
+                                }
+                              </select></label
+                            ><label
+                              >השוואה<select
+                                #payloadOperatorChoice
+                                [value]="condition.operator"
+                                (change)="
+                                  routeCondition(route, ci, {
+                                    operator: payloadOperatorChoice.value,
+                                  })
+                                "
+                              >
+                                @for (
+                                  operator of allowedOperators(condition.field);
+                                  track operator.key
+                                ) {
+                                  <option
+                                    [value]="operator.key"
+                                    [selected]="condition.operator === operator.key"
+                                  >
+                                    {{ operator.label }}
+                                  </option>
+                                }
+                              </select></label
+                            ><label
+                              >ערך להשוואה
+                              @if (condition.operator === 'exists') {
+                                <select
+                                  #payloadExists
+                                  [value]="condition.value"
+                                  (change)="
+                                    routeCondition(route, ci, { value: payloadExists.value })
+                                  "
+                                >
+                                  <option value="true" [selected]="condition.value === 'true'">
+                                    קיים ערך
+                                  </option>
+                                  <option value="false" [selected]="condition.value === 'false'">
+                                    השדה ריק
+                                  </option>
+                                </select>
+                              } @else {
+                                <input
+                                  #payloadValue
+                                  [type]="
+                                    payloadField(condition.field)?.type === 'number'
+                                      ? 'number'
+                                      : payloadField(condition.field)?.type === 'date'
+                                        ? 'date'
+                                        : 'text'
+                                  "
+                                  [value]="condition.value"
+                                  (input)="routeCondition(route, ci, { value: payloadValue.value })"
+                                  maxlength="4000"
+                                />
+                                @if (!condition.value.trim()) {
+                                  <span class="field-error">יש להזין ערך לתנאי.</span>
+                                }
+                                @if (condition.operator === 'in') {
+                                  <small>יש להפריד ערכים בפסיק.</small>
+                                }
+                              }
+                            </label>
+                          </div>
+                          <button class="text-button" (click)="removeRouteCondition(route, ci)">
+                            הסרת תנאי {{ ci + 1 }}
+                          </button>
+                        </fieldset>
+                      }
+                      <button class="secondary" (click)="addRouteCondition(route)">
+                        הוספת תנאי למסלול
+                      </button>
+                      <p class="payload-summary">
+                        אם {{ routeDescription(route) }} ← {{ stateName(route.to) }}
+                      </p>
+                      <button class="text-button" (click)="removePayloadRoute(route.key)">
+                        הסרת המסלול מהטיוטה
+                      </button>
+                    </div>
+                  </details>
+                }
+                <button
+                  class="secondary"
+                  [disabled]="!d.fields.length || (t.routes?.length ?? 0) >= 25"
+                  (click)="addPayloadRoute()"
+                >
+                  <app-icon name="plus" />הוספת מסלול מותנה
+                </button>
+                @if (!d.fields.length) {
+                  <p class="form-help">תחילה יש להוסיף שדות בצעד ״טופס ומסמכים״.</p>
+                }
+                <p class="note">
+                  ללא התאמה, הפעולה תעביר ל־<strong>{{ stateName(t.to) }}</strong
+                  >. בחירת המסלול מתבצעת בשרת לפי נתוני הפנייה השמורים, בעת ביצוע הפעולה.
+                </p>
+                @if (t.routes?.length) {
+                  <details class="disclosure">
+                    <summary>בדיקת החוק עם נתוני פנייה לדוגמה</summary>
+                    <ng-container [ngTemplateOutlet]="payloadSamples" />
+                    @if (issues().length) {
+                      <p class="field-error">יש להשלים את הגדרת התהליך והתנאים לפני הבדיקה.</p>
+                    }
+                    <button
+                      class="secondary"
+                      [disabled]="api.pending() > 0 || !!issues().length"
+                      (click)="previewAction()"
+                    >
+                      איזה שלב ייבחר?
+                    </button>
+                    @if (testDecision(); as decision) {
+                      <div class="preview-result" role="status">
+                        <small>השלב שנבחר</small>
+                        <h3>{{ decision.toLabel }}</h3>
+                        <p>
+                          מסלול: <strong>{{ decision.routeLabel }}</strong>
+                          @if (decision.priority !== null) {
+                            · עדיפות {{ decision.priority }}
+                          }
+                        </p>
+                        <small>{{ decision.reason }}</small>
+                      </div>
+                    }
+                  </details>
+                }
+              </section>
+              <h3>תנאים לביצוע</h3>
+              <label
+                >תנאים לביצוע הפעולה<select
+                  #guard
+                  [value]="t.guard"
+                  (change)="transition(selectedTransition()!, { guard: guard.value })"
+                >
+                  @for (g of guards; track g.key) {
+                    <option [value]="g.key" [selected]="g.key === t.guard">{{ g.label }}</option>
+                  }
+                </select></label
+              >
+              <p class="form-help">
+                המנהל בוחר בדיקה מובנית. מנוע השרת בודק אותה בכל ביצוע פעולה, לפני המעבר לשלב היעד.
+                שדות החובה והמסמכים מוגדרים בלשונית טופס ומסמכים.
+              </p>
+              </details>
+              <fieldset>
+                <legend>מי רשאי לבצע את הפעולה?</legend>
+                @for (role of roles; track role) {
+                  <label class="check-row"
+                    ><input
+                      #roleCheck
+                      type="checkbox"
+                      [checked]="t.roles.includes(role)"
+                      (change)="toggleRole(selectedTransition()!, role, roleCheck.checked)"
+                    />{{ api.role(role) }}</label
+                  >
+                }
+              </fieldset>
+              <details class="disclosure inspector-group" [open]="t.effects.length > 0">
+                <summary>תוצאות הפעולה</summary>
+              <fieldset>
+                <legend>מה קורה בעקבות הפעולה?</legend>
+                @for (effect of effects; track effect.key) {
+                  <label class="check-row"
+                    ><input
+                      #effectCheck
+                      type="checkbox"
+                      [checked]="t.effects.includes(effect.key)"
+                      (change)="
+                        toggleEffect(selectedTransition()!, effect.key, effectCheck.checked)
+                      "
+                    />{{ effect.label }}</label
+                  >
+                }
+              </fieldset>
+              </details>
+              <details class="disclosure">
+                <summary>מזהה הפעולה</summary>
+                <label
+                  >מזהה קבוע<input
+                    #actionKey
+                    [value]="t.key"
+                    dir="ltr"
+                    (input)="transition(selectedTransition()!, { key: actionKey.value })"
+                /></label>
+              </details>
+              <button class="text-button" (click)="removeTransition(selectedTransition()!)">
+                הסרת הפעולה מהטיוטה
+              </button>
+            </div>
+          } @else if (currentState(); as s) {
+            <h2 tabindex="-1">עריכת שלב</h2>
+            <label
+              >שם השלב<input
+                #stateNameInput
+                [value]="s.label"
+                (input)="changeCurrentState({ label: stateNameInput.value })"
+                maxlength="120"
+            /></label>
+            <div class="stack state-properties">
+              <label class="check-row"
+                ><input
+                  type="radio"
+                  name="initialState"
+                  [checked]="d.initialState === s.key"
+                  [disabled]="s.terminal"
+                  (change)="patch({ initialState: s.key })"
+                />התהליך מתחיל כאן</label
+              ><label class="check-row"
+                ><input
+                  #isTerminal
+                  type="checkbox"
+                  [checked]="s.terminal"
+                  [disabled]="s.key === d.initialState || !!outgoing(s.key).length"
+                  (change)="changeCurrentState({ terminal: isTerminal.checked })"
+                />שלב סיום</label
+              >
+            </div>
+            @if (outgoing(s.key).length) {
+              <p class="form-help">
+                כדי להפוך את השלב לשלב סיום, יש להסיר את הפעולות היוצאות ממנו.
+              </p>
+            }
+            <h3>מה אפשר לעשות בשלב הזה?</h3>
+            <div class="stack">
+              @for (edge of outgoing(s.key); track edge.index) {
+                <button class="secondary inspector-action" (click)="chooseTransition(edge.index)">
+                  {{ edge.transition.label }}<small>אל {{ stateName(edge.transition.to) }}</small>
+                </button>
+              }
+            </div>
+            <div class="form-actions">
+              <button [disabled]="s.terminal" (click)="addTransition()">
+                <app-icon name="plus" />הוספת פעולה
+              </button>
+            </div>
+            @if (s.terminal) {
+              <p class="form-help">אין פעולות יוצאות משלב סיום.</p>
+            }
+            <details class="disclosure">
+              <summary>אפשרויות נוספות</summary>
+              <small>מזהה שלב: {{ s.key }}</small>
+              <p class="form-help">אפשר להסיר שלב שאין אליו או ממנו מעברים ושאינו שלב ההתחלה.</p>
+              <button class="text-button" [disabled]="!canRemoveState()" (click)="removeState()">
+                הסרת שלב מהטיוטה
+              </button>
+            </details>
+          }
+        </aside>
+      </div>
+    }
+    @if (editorStep() === 2) {
+      <section class="panel">
+        <div class="panel-head">
+          <h2>שדות הטופס</h2>
+          <button class="secondary" (click)="addField()">הוספת שדה</button>
+        </div>
+        <div class="stack">
+          @for (f of d.fields; track $index; let i = $index) {
+            <details class="task-card process-detail">
+              <summary>{{ f.label }} · {{ f.required ? 'חובה להגשה' : 'רשות' }}</summary>
+              <div class="form-grid">
+                <label
+                  >שם השדה<input
+                    #fieldLabel
+                    [value]="f.label"
+                    (input)="field(i, { label: fieldLabel.value })" /></label
+                ><label
+                  >סוג השדה<select
+                    #fieldType
+                    [value]="f.type"
+                    (change)="field(i, { type: fieldType.value })"
+                  >
+                    <option value="text">טקסט</option>
+                    <option value="textarea">טקסט ארוך</option>
+                    <option value="number">מספר</option>
+                    <option value="date">תאריך</option>
+                    <option value="email">דואר אלקטרוני</option>
+                  </select></label
+                >
+                <fieldset>
+                  <legend>מי רשאי לצפות</legend>
+                  @for (role of roles; track role) {
+                    <label class="check-row"
+                      ><input
+                        #viewCheck
+                        type="checkbox"
+                        [checked]="f.viewRoles.includes(role)"
+                        (change)="toggleFieldPermission(i, 'viewRoles', role, viewCheck.checked)"
+                      />{{ api.role(role) }}</label
+                    >
+                  }
+                </fieldset>
+                <fieldset>
+                  <legend>מי רשאי לערוך</legend>
+                  @for (role of roles; track role) {
+                    <label class="check-row"
+                      ><input
+                        #editCheck
+                        type="checkbox"
+                        [checked]="f.editRoles.includes(role)"
+                        (change)="toggleFieldPermission(i, 'editRoles', role, editCheck.checked)"
+                      />{{ api.role(role) }}</label
+                    >
+                  }
+                </fieldset>
+                <fieldset class="span-all">
+                  <legend>שלבים המותרים לעריכה</legend>
+                  <div class="form-actions">
+                    @for (stage of d.states; track stage.key) {
+                      <label class="check-row"
+                        ><input
+                          #stageCheck
+                          type="checkbox"
+                          [checked]="f.editStates.includes(stage.key)"
+                          (change)="
+                            toggleFieldPermission(i, 'editStates', stage.key, stageCheck.checked)
+                          "
+                        />{{ stage.label }}</label
+                      >
+                    }
+                  </div>
+                </fieldset>
+                <label class="check-row"
+                  ><input
+                    #required
+                    type="checkbox"
+                    [checked]="f.required"
+                    (change)="field(i, { required: required.checked })"
+                  />שדה חובה להגשה</label
+                >
+              </div>
+              <p>
+                <small>מזהה שדה: {{ f.key }}</small>
+              </p>
+              <button class="text-button" (click)="removeField(i)">הסרת שדה</button>
+            </details>
+          }
+        </div>
+        <hr class="divider" />
+        <label
+          >מסמכים נדרשים, מופרדים בפסיק<input
+            #docs
+            [value]="d.documents.join(', ')"
+            (input)="documents(docs.value)"
+        /></label>
+      </section>
+    }
+    @if (editorStep() === 3) {
+      <section class="panel">
+        <h2>ניתוב הפניות ליחידות הארגון</h2>
+        <p>כללי התהליך קובעים מי יטפל בפנייה בעת יצירתה. מעברים בין מצבים מוגדרים במפת התהליך.</p>
+        <p class="note">
+          כלל ניתוב נשמר ומופעל מיד, בנפרד מפרסום גרסת התהליך. ללא התאמה, הפנייה מגיעה ליחידת נותן
+          השירות.
+        </p>
+      </section>
+      @if (base() > 0) {
+        <app-routing [embeddedProcess]="publishedKey()" />
+      } @else {
+        <p class="note">פרסמו גרסה ראשונה של התהליך כדי להגדיר עבורו כללי ניתוב.</p>
+      }
+    }
+    @if (editorStep() === 4) {
+      <section class="panel">
+        <h2>בדיקה ופרסום</h2>
+        <div class="workflow-stats">
+          <span>{{ d.states.length }} שלבים</span><span>{{ d.transitions.length }} פעולות</span
+          ><span>{{ d.fields.length }} שדות בטופס</span
+          ><span>{{ d.documents.length }} מסמכים נדרשים</span>
+        </div>
+        @if (issues().length) {
+          <div class="error-summary" role="status">
+            <strong>נדרשות השלמות בהגדרה</strong>
+            <ul>
+              @for (issue of issues(); track $index) {
+                <li>{{ issue }}</li>
+              }
+            </ul>
+            <button class="secondary" (click)="editorStep.set(1)">חזרה לעריכת התהליך</button>
+          </div>
+        }
+        <h3>נתוני פנייה לדוגמה</h3>
+        <ng-container [ngTemplateOutlet]="payloadSamples" />
+        <p class="muted">בחרו את סדר הפעולות שתרצו לבדוק עם הנתונים האלו לפני פרסום הגרסה.</p>
+        <div class="form-grid">
+          @for (action of list(simulation.value); track $index; let i = $index) {
+            <label
+              >פעולה {{ i + 1
+              }}<select
+                #simulationStepChoice
+                [value]="action"
+                (change)="simulationStep(i, simulationStepChoice.value)"
+              >
+                @for (t of d.transitions; track $index) {
+                  <option [value]="t.key" [selected]="t.key === action">
+                    {{ t.label }} · {{ stateName(t.from) }} ← {{ stateName(t.to) }}
+                  </option>
+                }
+              </select></label
+            >
+          }
+        </div>
+        <div class="form-actions">
+          <button class="text-button" (click)="addSimulationStep()">הוספת פעולה לבדיקה</button
+          ><button
+            class="text-button"
+            [disabled]="!list(simulation.value).length"
+            (click)="removeSimulationStep()"
+          >
+            הסרת הפעולה האחרונה
+          </button>
+        </div>
+        <p class="muted">
+          הסימולציה בודקת את תקינות ההגדרה ואת רצף המעברים. תנאי הנתונים נבדקים בשרת בכל פעולה על
+          פנייה.
+        </p>
+        <div class="form-actions">
+          <button
+            class="secondary"
+            [disabled]="api.pending() > 0 || !!issues().length"
+            (click)="simulate()"
+          >
+            בדיקת הגדרה וסימולציה</button
+          ><button [disabled]="!simulated() || api.pending() > 0" (click)="publish()">
+            פרסום גרסה חדשה
+          </button>
+        </div>
+        @if (result()) {
+          <p class="note" role="status">{{ result() }}</p>
+        }
+      </section>
+    }
+    <div class="wizard-footer">
+      @if (editorStep() > 0) {
+        <button class="secondary" (click)="editorStep.update(previousStep)">הצעד הקודם</button>
+      }
+      @if (editorStep() < 4) {
+        <button (click)="nextStep()">
+          המשך: {{ steps[editorStep() + 1] }}<app-icon name="arrow" />
+        </button>
+      }
+      <small>{{
+        editorStep() === 3
+          ? 'כללי ניתוב נשמרים מיד באמצעות שמירת כלל.'
+          : 'השינויים יחולו לאחר בדיקה ופרסום גרסה.'
+      }}</small>
+    </div>
+  }
+}
+
+@if (discardOpen()) {
+  <div class="modal-backdrop">
+    <section
+      class="discard-dialog"
+      role="alertdialog"
+      aria-modal="true"
+      aria-labelledby="discard-title"
+      aria-describedby="discard-description"
+      (keydown)="discardKeys($event)"
+    >
+      <h2 id="discard-title">יש שינויים שטרם פורסמו</h2>
+      <p id="discard-description">
+        אם תמשיכו, השינויים בטיוטה הזו יאבדו. הגרסה שפורסמה נשארת כפי שהיא.
+      </p>
+      <div class="form-actions">
+        <button (click)="resolveDiscard(false)">המשך עריכה</button
+        ><button class="secondary" (click)="resolveDiscard(true)">ויתור על השינויים והמשך</button>
+      </div>
+    </section>
+  </div>
+}
+
+</article>
+
+

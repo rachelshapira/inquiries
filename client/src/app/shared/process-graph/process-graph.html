@@ -1,0 +1,92 @@
+<div
+  class="graph-scroll"
+  role="region"
+  tabindex="0"
+  aria-label="מפת שלבים וחצים. ניתן לגלול לרוחב ולבחור שלב או מעבר."
+>
+  <svg
+    [attr.viewBox]="'0 0 ' + graph().width + ' ' + graph().height"
+    [style.min-width.px]="graph().width * 0.78"
+    role="group"
+    aria-label="מפת מעברים בתהליך"
+  >
+    <defs>
+      <marker
+        [attr.id]="arrowId"
+        markerUnits="userSpaceOnUse"
+        markerWidth="12"
+        markerHeight="12"
+        refX="10"
+        refY="6"
+        orient="auto"
+      >
+        <path d="M0,1 L10,6 L0,11 Z" fill="var(--service-graph-color, #397166)" />
+      </marker>
+    </defs>
+    @for (e of graph().edges; track e.id) {
+      <g
+        role="button"
+        tabindex="0"
+        [attr.aria-label]="e.label + ': ' + e.fromLabel + ' אל ' + e.toLabel"
+        (click)="actionSelected.emit(e.index)"
+        (keydown)="key($event, e.index)"
+        [class.highlighted]="selected() === e.from"
+        [class.selected-action]="selectedAction() === e.index"
+        [attr.aria-pressed]="selectedAction() === e.index"
+        class="graph-edge"
+      >
+        <title>{{ e.label }} {{ e.condition }}</title>
+        <path
+          [attr.d]="e.path"
+          fill="none"
+          [attr.marker-end]="'url(#' + arrowId + ')'"
+          [class.fallback]="e.fallback"
+        />
+        <path [attr.d]="e.path" class="edge-hit" fill="none" />
+        @if (selected() === e.from) {
+          <circle [attr.cx]="e.lx" [attr.cy]="e.ly" r="12" class="edge-number-bg" />
+          <text [attr.x]="e.lx" [attr.y]="e.ly + 4" text-anchor="middle" class="edge-label">
+            {{ e.id + 1 }}
+          </text>
+        }
+      </g>
+    }
+    @for (n of graph().nodes; track n.key) {
+      <g
+        role="button"
+        tabindex="0"
+        [attr.aria-label]="n.label + (n.initial ? ' · התחלה' : n.terminal ? ' · סיום' : '')"
+        [attr.aria-pressed]="selected() === n.key"
+        (click)="stateSelected.emit(n.key)"
+        (keydown)="key($event, n.key)"
+        class="graph-state"
+        [class.selected]="selected() === n.key"
+        [class.terminal]="n.terminal"
+      >
+        <title>{{ n.label }}</title>
+        <rect [attr.x]="n.x - 100" [attr.y]="n.y - 32" width="200" height="70" rx="12" />
+        <text [attr.x]="n.x" [attr.y]="n.y" text-anchor="middle" class="state-label">
+          {{ n.label.length > 22 ? n.label.slice(0, 21).trimEnd() + '…' : n.label }}
+        </text>
+        <text [attr.x]="n.x" [attr.y]="n.y + 23" text-anchor="middle" class="state-kind">
+          {{ n.initial ? 'התחלה' : n.terminal ? 'סיום' : 'שלב טיפול' }}
+        </text>
+      </g>
+    }
+  </svg>
+</div>
+<p class="graph-help">
+  החצים מחברים בין השלבים. בחרו שלב כדי להדגיש את המעברים שלו; המספרים תואמים למקרא המעברים. חץ
+  מקווקו מציין ברירת מחדל.
+</p>
+
+<div class="graph-legend" role="group" aria-label="מקרא מעברים מהשלב הנבחר">
+  @for (e of graph().edges; track e.id) {
+    @if (selected() === e.from) {
+      <button type="button" (click)="actionSelected.emit(e.index)">
+        <span class="legend-number">{{ e.id + 1 }}</span>
+        <span>{{ e.label }} ← {{ e.toLabel }}</span>
+      </button>
+    }
+  }
+</div>

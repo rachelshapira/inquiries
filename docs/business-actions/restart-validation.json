@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "checks": [
+    "null action key rejected with 400",
+    "success/failure/idempotency results survive server restart"
+  ]
+}

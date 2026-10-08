@@ -1,0 +1,16 @@
+{
+  "scope": ["Inquiry Detail", "Inquiry Queue", "Create Inquiry", "Workflow Builder"],
+  "backendChanged": false,
+  "strictFrontendBuild": "passed",
+  "existingChecks": {"integration": 12, "payload": 10, "organization": 10, "requiredDocumentsAccess": 11, "totalPassed": 43},
+  "presentationChecksPassed": 7,
+  "savedAttachmentE2E": {"passed": true, "runner": "supported in-app browser adapter", "inquiryId": 32, "environment": "isolated snapshot on port 5081", "databaseStatusBypass": false},
+  "angularUnitCli": {"status": "blocked before test execution", "error": "spawn EPERM in esbuild"},
+  "standalonePlaywrightCli": {"status": "previously blocked; not rerun this iteration", "browserAdapterScenario": "passed"},
+  "axe": {"version": "4.13.0", "audits": 34, "reportedViolations": 0, "incomplete": "Workflow SVG contrast and partially obscured expanded-condition labels; see axe-results.json"},
+  "visualWidths": [1440, 768, 375],
+  "finalRepresentativeCaptures": 12,
+  "pageHorizontalOverflow": false,
+  "font": {"family": "Rubik", "source": "official Google Fonts repository", "delivery": "locally bundled", "license": "SIL OFL 1.1", "fallback": "Segoe UI, Arial, sans-serif"},
+  "skillChanged": false
+}

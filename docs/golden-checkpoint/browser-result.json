@@ -1,0 +1,46 @@
+{
+  "simple": "SKIPPED — MISSING EXISTING TEST CONFIGURATION",
+  "requiredDocuments": "PASS",
+  "authorization": "PASS",
+  "partialEligibility": "SKIPPED — NO EXISTING PARTIAL-ELIGIBILITY CONFIGURATION",
+  "required": {
+    "passed": true,
+    "inquiryId": 13,
+    "title": "בירור תשלום עם מסמכים – E2E 1791319484541",
+    "response": "החשבונית ואישור ביצוע השירות התקבלו. הבירור הושלם; התשלום יטופל במחזור הבא.",
+    "processKey": "payment-inquiry",
+    "processNumber": 2,
+    "states": [
+      "Draft",
+      "Submitted",
+      "InTreatment",
+      "ClosedWithResponse"
+    ],
+    "history": [
+      "מענה וסגירת הפנייההחשבונית ואישור ביצוע השירות התקבלו. הבירור הושלם; התשלום יטופל במחזור הבא.יעל ישראלי · 06.10.2026 20:44 · סבב 1 ",
+      "התחלת טיפוליעל ישראלי · 06.10.2026 20:44 · סבב 1 ",
+      "הגשת הפנייהנועה לוי · 06.10.2026 20:44 · סבב 1 ",
+      "העלאת מסמךאישור ביצוע שירותנועה לוי · 06.10.2026 20:44",
+      "העלאת מסמךחשבוניתנועה לוי · 06.10.2026 20:44",
+      "עדכון פרטיםנועה לוי · 06.10.2026 20:44",
+      "פתיחת פנייהניתוב אוטומטי ל־מחוז מרכז · ברירת מחדלנועה לוי · 06.10.2026 20:44"
+    ],
+    "checks": [
+      "Missing required fields block submission",
+      "Each required document blocks submission until uploaded",
+      "Real UI file uploads",
+      "Employee queue and existing transitions",
+      "Persisted response and final external view"
+    ]
+  },
+  "configuration": {
+    "processId": 6,
+    "key": "payment-inquiry",
+    "number": 2,
+    "documents": [
+      "חשבונית",
+      "אישור ביצוע שירות"
+    ]
+  },
+  "configurationWrites": 0
+}

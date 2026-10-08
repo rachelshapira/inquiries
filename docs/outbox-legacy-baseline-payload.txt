@@ -1,0 +1,14 @@
+PASS typed decimal boundary, text comparison and first matching priority
+PASS missing fields do not match negative comparisons; exists is explicit
+PASS AND and OR over distinct payload fields
+PASS date ordering and email substring conditions
+PASS catalog, operator, constant and payload validation on the server
+PASS equal priorities have a deterministic identifier tie-break
+Traceback (most recent call last):
+  File "C:\Users\shapira\Documents\Codex\2026-10-04\skill-creator-c-users-shapira-codex\outputs\workflow-system\checks\payload.py", line 60, in <module>
+    case=admin.call('/cases','POST',dict(providerId=p['id'],processVersionId=version['id'],title='Payload check '+stamp,data={'amount':'1'}))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shapira\Documents\Codex\2026-10-04\skill-creator-c-users-shapira-codex\outputs\workflow-system\checks\payload.py", line 14, in call
+    assert code==status,(path,code,value.decode()[:800])
+           ^^^^^^^^^^^^
+AssertionError: ('/cases', 403, '{"error":"��� ����� ������ ����� ������ ��"}')

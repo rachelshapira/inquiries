@@ -1,0 +1,56 @@
+[
+  {
+    "width": 375,
+    "state": "completed",
+    "url": "http://127.0.0.1:5081/cases/7",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 28,
+    "incomplete": []
+  },
+  {
+    "width": 768,
+    "state": "completed",
+    "url": "http://127.0.0.1:5081/cases/7",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 28,
+    "incomplete": []
+  },
+  {
+    "width": 1440,
+    "state": "completed",
+    "url": "http://127.0.0.1:5081/cases/7",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 28,
+    "incomplete": []
+  },
+  {
+    "width": 1440,
+    "state": "draft",
+    "url": "http://127.0.0.1:5081/cases/8",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 30,
+    "incomplete": []
+  },
+  {
+    "width": 768,
+    "state": "draft",
+    "url": "http://127.0.0.1:5081/cases/8",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 30,
+    "incomplete": []
+  },
+  {
+    "width": 375,
+    "state": "draft",
+    "url": "http://127.0.0.1:5081/cases/8",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 30,
+    "incomplete": []
+  }
+]

@@ -1,0 +1,166 @@
+<article class="service-page" [class.service-list]="!showNew()" [class.service-form]="showNew()">
+  @if (showNew() && (editing() || api.canCreate())) {
+    <button type="button" class="text-button service-back" (click)="closeEditor()">{{ editing() ? 'חזרה לפנייה' : 'חזרה לפניות' }}</button>
+    <header class="service-heading">
+      <h1>{{ editing() ? 'עריכת הפנייה' : 'פתיחת פנייה' }}</h1>
+      @if (draft(); as c) { <p class="service-meta">פנייה <bdi>#{{ c.id }}</bdi> · <span class="service-status" [attr.data-state]="c.state">{{ stateLabel(c.stateLabel) }}</span></p> }
+      <p class="service-help">{{ editing() ? 'עדכנו את הפרטים המותרים בשלב הנוכחי ובדקו את השינויים.' : 'מלאו פרטים, צרפו את המסמכים הנדרשים ובדקו לפני ההגשה.' }}</p>
+    </header>
+    <ol class="wizard-steps" [attr.aria-label]="editing() ? 'שלבי עריכת הפנייה' : 'שלבי פתיחת הפנייה'">
+      @for (label of steps(); track label) {
+        <li [attr.aria-current]="step() === $index ? 'step' : null" [class.completed]="stepDone($index)"><span>{{ $index + 1 }}.</span> {{ label }}{{ stepDone($index) ? ($index === 0 ? ' · נשמר' : ' · הושלם') : '' }}</li>
+      }
+    </ol>
+    <h2 #stepHeading tabindex="-1" class="wizard-heading">{{ steps()[step()] }}</h2>
+    @if (step() === 0) {
+    <form [formGroup]="form" (ngSubmit)="create()">
+      <section class="service-section" aria-labelledby="request-heading">
+        <h2 id="request-heading">על מה הפנייה?</h2>
+        <div class="service-fields">
+          @if (draft(); as c) {
+            <dl class="service-value"><dt>נותן שירות</dt><dd>{{ c.providerName }}</dd></dl>
+            <dl class="service-value"><dt>סוג הפנייה</dt><dd>{{ c.processName }}</dd></dl>
+          } @else {
+          <label>נותן שירות<select formControlName="providerId">
+            @for (p of providers(); track p.id) { <option [ngValue]="p.id">{{ p.name }}</option> }
+          </select></label>
+          <label>סוג הפנייה<select formControlName="processVersionId">
+            @for (p of processes(); track p.id) { <option [ngValue]="p.id">{{ p.definition.name }}</option> }
+          </select></label>
+          }
+          <label class="span-all">נושא הפנייה
+            <input formControlName="title" [readonly]="!!draft()" aria-label="נושא הפנייה" maxlength="160" aria-required="true" placeholder="לדוגמה: בירור תשלום עבור שירות"
+              [attr.aria-describedby]="form.controls.title.touched && form.controls.title.invalid ? 'case-title-error' : 'title-help'"
+              [attr.aria-invalid]="form.controls.title.touched && form.controls.title.invalid" />
+            @if (form.controls.title.touched && form.controls.title.invalid) {
+              <span id="case-title-error" class="field-error">יש להזין נושא לפנייה.</span>
+            }
+            <span id="title-help" class="service-help">{{ draft() ? 'נושא הפנייה נקבע בעת יצירת הטיוטה. ניתן לעדכן את פרטי הבקשה בהמשך.' : 'שדה חובה ליצירת הפנייה. תיאור קצר שיעזור לזהות את הבקשה.' }}</span>
+          </label>
+        </div>
+      </section>
+      @if (creationFields().length) {
+        <section class="service-section" aria-labelledby="form-details-heading">
+          <h2 id="form-details-heading">פרטי הבקשה</h2>
+          <p id="submission-help" class="service-help">{{ editing() ? 'מוצגים השדות שניתן לערוך בשלב הנוכחי. שדות המסומנים ב־* נדרשים להגשה.' : 'שדות המסומנים ב־* הם חובה להגשה. אפשר ליצור טיוטה ולהשלים אותם בהמשך.' }}</p>
+          <div [formGroup]="data" class="service-fields">
+            @for (f of creationFields(); track f.key) {
+              <label [class.span-all]="f.type === 'textarea'">{{ f.label }}{{ f.required ? ' *' : ' (רשות)' }}
+                @if (f.type === 'textarea') {
+                  <textarea [formControlName]="f.key" maxlength="4000" [attr.aria-describedby]="f.required ? 'submission-help' : null"></textarea>
+                } @else {
+                  <input [type]="f.type" [formControlName]="f.key" maxlength="4000" [attr.aria-describedby]="f.required ? 'submission-help' : null" />
+                }
+              </label>
+            }
+          </div>
+        </section>
+      }
+      @if (documentStep()) {
+        <section class="service-section" aria-labelledby="required-documents-heading">
+          <h2 id="required-documents-heading">מסמכים להגשה</h2>
+          <p>{{ draft() ? 'בשלב הבא ניתן לבדוק ולהשלים את המסמכים:' : 'לאחר שמירת הפרטים יש לצרף:' }} <strong>{{ creationDocuments().join(' · ') }}</strong>.</p>
+          <p class="service-help">ההגשה תתאפשר לאחר השלמת שדות החובה וצירוף המסמכים הנדרשים.</p>
+        </section>
+      }
+      <div class="form-actions">
+        <button [disabled]="api.pending() > 0">שמירה והמשך</button>
+        <button type="button" class="secondary" (click)="closeEditor()">ביטול</button>
+      </div>
+    </form>
+    } @else if (draft(); as c) {
+      @if (step() === 1 && documentStep()) {
+        <section class="service-section" aria-labelledby="wizard-documents-heading">
+          <h3 id="wizard-documents-heading">מסמכים להגשה</h3>
+          <p role="status" class="service-meta">{{ completedDocuments() }} מתוך {{ creationDocuments().length }} הושלמו</p>
+          <ul class="service-files">
+            @for (kind of creationDocuments(); track kind) {
+              <li [attr.data-document-kind]="kind">
+                <h3>{{ kind }} <small class="service-help">חובה</small></h3>
+                @if (documentFor(kind); as document) {
+                  <p>{{ document.valid ? 'הועלה' : 'תוקף המסמך פג — נדרשת העלאה חדשה' }}</p>
+                  <a [href]="'/api/cases/' + c.id + '/documents/' + document.id"><bdi>{{ document.fileName }}</bdi><span class="visually-hidden"> — הורדת {{ kind }}</span></a>
+                } @else { <p class="service-help">טרם צורף מסמך</p> }
+                @if (c.canUpload) {
+                  <div class="service-fields">
+                    <label>בחירת קובץ — {{ kind }}<input #fileInput type="file" accept=".pdf,.png,.jpg,.jpeg" (change)="pick($event, kind)" /></label>
+                    <label>בתוקף עד — {{ kind }} <small>רשות</small><input #validUntilInput type="date" dir="ltr" /></label>
+                  </div>
+                  <p class="service-help">קובץ PDF או תמונה, עד 10MB.</p>
+                  <button type="button" class="secondary" [attr.aria-label]="'העלאת ' + kind" [disabled]="!selectedFiles()[kind] || api.pending() > 0" (click)="upload(kind, fileInput, validUntilInput.value)">{{ documentFor(kind) ? 'העלאת גרסה חדשה' : 'העלאה' }}</button>
+                } @else { <p class="service-help">לא ניתן לצרף מסמכים עם ההרשאות שלך או בשלב הנוכחי.</p> }
+              </li>
+            }
+          </ul>
+        </section>
+        <div class="form-actions"><button type="button" [disabled]="api.pending() > 0" (click)="goStep(steps().length - 1)">המשך</button><button type="button" class="secondary" [disabled]="api.pending() > 0" (click)="goStep(0)">חזרה לפרטים</button></div>
+      } @else {
+        <section class="service-section" aria-labelledby="wizard-review-heading">
+          <h3 id="wizard-review-heading">פרטי הפנייה</h3>
+          <div class="service-fields">
+            <dl class="service-value"><dt>נושא הפנייה</dt><dd dir="auto">{{ businessTitle(c.title, c.processName) }}</dd></dl>
+            <dl class="service-value"><dt>סוג הפנייה</dt><dd>{{ c.processName }}</dd></dl>
+            <dl class="service-value"><dt>נותן שירות</dt><dd>{{ c.providerName }}</dd></dl>
+            @for (f of c.fields; track f.key) { <dl class="service-value" [class.span-all]="f.type === 'textarea'"><dt>{{ f.label }}</dt><dd><bdi>{{ f.type === 'date' && c.data[f.key] ? (c.data[f.key] | date: 'dd.MM.yyyy') : c.data[f.key] || 'לא צוין' }}</bdi></dd></dl> }
+          </div>
+          <button type="button" class="text-button" (click)="goStep(0)">עריכת פרטים</button>
+        </section>
+        @if (creationDocuments().length) {
+          <section class="service-section" aria-labelledby="wizard-review-documents">
+            <h3 id="wizard-review-documents">מסמכים</h3>
+            <p role="status" class="service-meta">{{ completedDocuments() }} מתוך {{ creationDocuments().length }} הושלמו</p>
+            <ul class="service-files">
+              @for (kind of creationDocuments(); track kind) { <li><strong>{{ kind }}</strong> · חובה
+                @if (documentFor(kind); as document) { <a [href]="'/api/cases/' + c.id + '/documents/' + document.id"><bdi>{{ document.fileName }}</bdi></a>@if (!document.valid) { <p class="field-error">תוקף המסמך פג</p> } }
+                @else { <p class="field-error">טרם צורף מסמך</p> }
+              </li> }
+            </ul>
+            @if (documentStep()) { <button type="button" class="text-button" (click)="goStep(1)">עריכת מסמכים</button> }
+          </section>
+        }
+        <p class="service-help">{{ editing() ? 'השינויים נשמרו. שינוי שלב מתבצע רק באמצעות פעולת התהליך המתאימה.' : 'בדקו את הפרטים לפני ההגשה. לאחר ההגשה הפנייה תועבר להמשך טיפול.' }}</p>
+        <div class="form-actions">
+          @for (action of submissionActions(); track action.key) {
+            <div><button type="button" [disabled]="!!action.blockedReason || api.pending() > 0" [attr.aria-describedby]="'wizard-action-' + action.key" (click)="submit(action.key)">{{ !editing() && submissionActions().length === 1 ? 'הגשת הפנייה' : action.label }}</button>
+              @if (action.blockedReason) { <p class="field-error" [id]="'wizard-action-' + action.key">{{ action.blockedReason }}</p> }
+            </div>
+          } @empty { @if (!editing()) { <p class="service-help">אין פעולת הגשה זמינה בשלב הנוכחי. <a [routerLink]="['/cases', c.id]">לפרטי הפנייה</a></p> } }
+          @if (editing()) { <a class="button" [class.secondary]="submissionActions().length > 0" [routerLink]="['/cases', c.id]">סיום העריכה</a> }
+          <button type="button" class="secondary" [disabled]="api.pending() > 0" (click)="goStep(step() - 1)">חזרה</button>
+        </div>
+      }
+    }
+  } @else {
+    <header class="service-heading service-header-row">
+      <div><h1>{{ api.session()?.user?.role === 'Provider' ? 'הפניות שלי' : 'תור פניות' }}</h1>
+        <p class="service-help">חיפוש, מעקב ופתיחת פנייה להמשך טיפול.</p></div>
+      @if (api.canCreate()) { <button (click)="beginNew()">פתיחת פנייה</button> }
+    </header>
+    <section aria-label="חיפוש וסינון" class="service-filters">
+      <label for="search">חיפוש פניות<input id="search" type="search" placeholder="נושא, מספר או נותן שירות" #searchInput [value]="search()" (input)="search.set(searchInput.value)" /></label>
+      <label for="state">מצב הפנייה<select id="state" #stateSelect [value]="state()" (change)="state.set(stateSelect.value)">
+        <option value="">כל המצבים</option>
+        @for (s of states(); track s[0]) { <option [value]="s[0]">{{ stateLabel(s[1]) }}</option> }
+      </select></label>
+    </section>
+    <p class="service-help service-results" role="status">{{ filtered().length }} פניות</p>
+    <div class="service-table-wrap">
+      <table class="service-table" aria-label="רשימת פניות">
+        <thead><tr><th scope="col">מספר</th><th scope="col">נושא הפנייה</th><th scope="col">נותן שירות</th><th scope="col">מצב</th><th scope="col">עדכון אחרון</th></tr></thead>
+        <tbody>
+          @for (item of filtered(); track item.id) {
+            <tr><td class="row-identity"><bdi>#{{ item.id }}</bdi></td>
+              <td class="row-subject"><a [routerLink]="['/cases', item.id]" dir="auto">{{ businessTitle(item.title, item.processName) }}</a><small class="service-help">{{ item.processName }}</small></td>
+              <td class="row-provider">{{ item.providerName }}</td>
+              <td class="row-status"><span class="service-status" [attr.data-state]="item.state">{{ stateLabel(item.stateLabel) }}</span></td>
+              <td class="row-date"><span class="mobile-label">עודכנה ב־</span><bdi>{{ item.updatedAt | date: 'dd.MM.yyyy' }}</bdi></td>
+            </tr>
+          } @empty {
+            <tr><td colspan="5" class="service-empty">לא נמצאו פניות התואמות לחיפוש. נסו לשנות את החיפוש או את המצב שנבחר.</td></tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <p class="service-help service-list-note">מוצגות עד 500 הפניות שעודכנו לאחרונה.</p>
+  }
+</article>

@@ -1,0 +1,35 @@
+sequenceDiagram
+    autonumber
+    actor U as Reviewer
+    participant W as Workflow Engine
+    participant O as Outbox (DB)
+    participant K as Worker + Adapter
+    participant T as External System (Target)
+
+    U->>W: Clicks "Approve"
+    Note over W,O: State + note saved in ONE transaction (atomic)
+    W->>O: Write note (pending) + state = "Waiting"
+    W-->>U: "Received, in progress"
+
+    loop Every 5 seconds
+        K->>O: Pull pending notes
+    end
+    K->>T: Send action (HTTP + OperationId)
+
+    alt Fast Target - synchronous
+        T-->>K: Success / Failure (immediately)
+    else Slow Target - polling
+        T-->>K: "Accepted, id 123"
+        K->>O: Release, check later
+        K->>T: "Done yet?" (asks again)
+        T-->>K: Success / Failure
+    else Slow Target - callback
+        T-->>K: "Accepted, id 123"
+        Note over T,W: Later the Target calls US
+        T->>W: webhook with the result
+    end
+
+    Note over W: Success/Failure transition (WaitingState guard blocks overwrite)
+    W->>O: Write notification/mail (new note)
+    K->>T: (actually send the notification)
+    W-->>U: Inquiry advanced + notification

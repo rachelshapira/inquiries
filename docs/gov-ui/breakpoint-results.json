@@ -1,0 +1,26 @@
+[
+  {
+    "client": 584,
+    "columns": "552px",
+    "scroll": 584,
+    "viewport": 599
+  },
+  {
+    "client": 586,
+    "columns": "257px 257px",
+    "scroll": 586,
+    "viewport": 601
+  },
+  {
+    "client": 884,
+    "columns": "406px 406px",
+    "scroll": 884,
+    "viewport": 899
+  },
+  {
+    "client": 886,
+    "columns": "297px 297px",
+    "scroll": 886,
+    "viewport": 901
+  }
+]

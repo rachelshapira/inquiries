@@ -1,0 +1,65 @@
+[
+  {
+    "name": "long-hebrew-desktop",
+    "client": 1425,
+    "height": 1071,
+    "sidebar": 1186.666748046875,
+    "width": 1440,
+    "y": 0,
+    "bottomY": 195.3333282470703
+  },
+  {
+    "name": "long-hebrew-mobile",
+    "client": 360,
+    "height": 1275,
+    "sidebar": null,
+    "width": 375,
+    "y": 0,
+    "bottomY": 399.3333435058594
+  },
+  {
+    "name": "empty-optional-desktop",
+    "client": 1440,
+    "height": 875,
+    "sidebar": 1202,
+    "width": 1440,
+    "y": 0,
+    "bottomY": 0
+  },
+  {
+    "name": "active-desktop",
+    "client": 1425,
+    "height": 1185,
+    "sidebar": 1186.666748046875,
+    "width": 1440,
+    "y": 0,
+    "bottomY": 309.3333435058594
+  },
+  {
+    "name": "desktop",
+    "client": 1425,
+    "height": 1101,
+    "sidebar": 1186.666748046875,
+    "width": 1440,
+    "y": 0,
+    "bottomY": 225.3333282470703
+  },
+  {
+    "name": "tablet",
+    "client": 753,
+    "height": 1093,
+    "sidebar": null,
+    "width": 768,
+    "y": 0,
+    "bottomY": 217.3333282470703
+  },
+  {
+    "name": "mobile",
+    "client": 360,
+    "height": 1311,
+    "sidebar": null,
+    "width": 375,
+    "y": 0,
+    "bottomY": 436
+  }
+]

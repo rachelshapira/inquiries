@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "inquiryId": 43,
+  "expected": "done",
+  "before": "רחוב הדוגמה 10, עיר ניסוי",
+  "after": "רחוב העתיד 40, עיר דמיונית",
+  "response": "הכתובת עודכנה מ־רחוב הדוגמה 10, עיר ניסוי ל־רחוב העתיד 40, עיר דמיונית.",
+  "steps": [
+    "External user creates configured dynamic no-document inquiry and submits through workflow guard",
+    "Employee finds same inquiry in queue; approval queues action; waiting state exposes no manual completion",
+    "Target outcome triggers configured automatic workflow transition and public response",
+    "Same external owner reloads final result, before/after and public history; internal approval note stays private"
+  ]
+}

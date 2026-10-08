@@ -1,0 +1,135 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+.graph-scroll {
+  overflow-x: auto;
+  border: 1px solid #d9e6df;
+  border-radius: 12px;
+  background: #f7faf8;
+  max-width: 100%;
+}
+.graph-scroll svg {
+  display: block;
+  width: 100%;
+  font-family: inherit;
+}
+.graph-state {
+  cursor: pointer;
+}
+.graph-state rect {
+  fill: white;
+  stroke: #9caea8;
+  stroke-width: 1.5;
+}
+.graph-state.selected rect {
+  stroke: #175b49;
+  stroke-width: 3;
+  fill: #e8f3ec;
+}
+.graph-state.terminal rect {
+  fill: #ecf7ef;
+}
+.state-label {
+  font-size: 14px;
+  font-weight: 700;
+  fill: #203c32;
+}
+.state-kind {
+  font-size: 12px;
+  fill: #52685c;
+}
+.graph-edge {
+  cursor: pointer;
+}
+.graph-edge > path:first-of-type {
+  stroke: #397166;
+  stroke-width: 1.5;
+  opacity: 1;
+}
+.graph-edge.highlighted > path:first-of-type {
+  stroke-width: 2.5;
+  opacity: 1;
+}
+.fallback {
+  stroke-dasharray: 6 4;
+}
+.edge-hit {
+  stroke: transparent;
+  stroke-width: 18;
+}
+.edge-label {
+  font-size: 12px;
+  fill: #204b3c;
+  paint-order: stroke;
+  stroke: #f7faf8;
+  stroke-width: 5;
+  stroke-linejoin: round;
+}
+.graph-help {
+  font-size: 13px;
+  color: #52685c;
+  margin: 10px 0;
+}
+.graph-state:focus rect {
+  stroke: #1e5fc0;
+  stroke-width: 4;
+}
+.graph-edge:focus > path:first-of-type {
+  stroke: #1e5fc0;
+  stroke-width: 4;
+}
+
+.edge-number-bg {
+  fill: #ffffff;
+  stroke: #397166;
+  stroke-width: 1.5;
+}
+.graph-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.graph-legend button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #9caea8;
+  background: #fff;
+  color: #203c32;
+  border-radius: 8px;
+  font: inherit;
+  cursor: pointer;
+  text-align: start;
+}
+.graph-legend button:focus-visible {
+  outline: 3px solid #1e5fc0;
+  outline-offset: 2px;
+}
+.legend-number {
+  min-width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #e8f3ec;
+  color: #203c32;
+  font-weight: 700;
+}
+
+/* Reuse the same renderer; the adopted page foundation supplies presentation tokens. */
+:host-context(.service-page) .graph-scroll { background: #f8faff; border-color: var(--service-divider); border-radius: 8px; }
+:host-context(.service-page) .graph-state rect { stroke: var(--service-border); rx: 8px; }
+:host-context(.service-page) .graph-state.selected rect { stroke: var(--service-primary); fill: var(--service-soft); }
+:host-context(.service-page) .state-label { fill: var(--service-ink); font-size: 18px; font-weight: 500; }
+:host-context(.service-page) .state-kind { fill: var(--service-muted); font-size: 16px; }
+:host-context(.service-page) .graph-edge > path:first-of-type { stroke: var(--service-primary); }
+:host-context(.service-page) .graph-edge.selected-action > path:first-of-type { stroke: var(--service-hover); stroke-width: 5; }
+:host-context(.service-page) .edge-number-bg { stroke: var(--service-primary); }
+:host-context(.service-page) .edge-label { fill: var(--service-ink); stroke: white; font-size: 14px; }
+:host-context(.service-page) .graph-help { color: var(--service-muted); font-size: 14px; }
+:host-context(.service-page) .graph-legend button { border-color: var(--service-border); color: var(--service-ink); }
+:host-context(.service-page) .legend-number { color: var(--service-ink); background: var(--service-soft); }

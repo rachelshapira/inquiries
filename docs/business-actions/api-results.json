@@ -1,0 +1,438 @@
+{
+  "passed": true,
+  "processId": 40,
+  "processNumber": 7,
+  "definition": {
+    "name": "בקשה לשינוי כתובת — הדגמה מקומית",
+    "initialState": "draft",
+    "documents": [],
+    "fields": [
+      {
+        "key": "requestedAddress",
+        "label": "כתובת חדשה (נתוני הדגמה בלבד)",
+        "type": "textarea",
+        "required": true,
+        "viewRoles": [
+          "Provider",
+          "Reviewer",
+          "Approver",
+          "Admin"
+        ],
+        "editRoles": [
+          "Provider"
+        ],
+        "editStates": [
+          "draft"
+        ]
+      }
+    ],
+    "states": [
+      {
+        "key": "draft",
+        "label": "טיוטה",
+        "terminal": false
+      },
+      {
+        "key": "review",
+        "label": "ממתינה לאישור",
+        "terminal": false
+      },
+      {
+        "key": "applying",
+        "label": "עדכון הכתובת מתבצע",
+        "terminal": false
+      },
+      {
+        "key": "done",
+        "label": "הכתובת עודכנה",
+        "terminal": true
+      },
+      {
+        "key": "failed",
+        "label": "עדכון הכתובת לא בוצע",
+        "terminal": true
+      }
+    ],
+    "transitions": [
+      {
+        "key": "submit",
+        "label": "הגשת הבקשה",
+        "from": "draft",
+        "to": "review",
+        "roles": [
+          "Provider"
+        ],
+        "guard": "submission",
+        "effects": [
+          "newRound"
+        ]
+      },
+      {
+        "key": "approve",
+        "label": "אישור ועדכון הכתובת",
+        "from": "review",
+        "to": "applying",
+        "roles": [
+          "Reviewer",
+          "Approver"
+        ],
+        "guard": "reason",
+        "effects": [],
+        "businessAction": {
+          "key": "changeAddress",
+          "inputs": {
+            "address": "requestedAddress"
+          },
+          "success": "completed",
+          "failure": "rejected"
+        }
+      },
+      {
+        "key": "completed",
+        "label": "הכתובת עודכנה",
+        "from": "applying",
+        "to": "done",
+        "roles": [
+          "Admin"
+        ],
+        "guard": "none",
+        "effects": [],
+        "trigger": "businessSuccess"
+      },
+      {
+        "key": "rejected",
+        "label": "עדכון הכתובת לא בוצע",
+        "from": "applying",
+        "to": "failed",
+        "roles": [
+          "Admin"
+        ],
+        "guard": "none",
+        "effects": [],
+        "trigger": "businessFailure"
+      }
+    ]
+  },
+  "results": [
+    {
+      "mode": "normal",
+      "inquiryId": 86,
+      "before": {
+        "providerId": 1,
+        "address": "רחוב הדוגמה 10, עיר ניסוי",
+        "changes": 24,
+        "mode": "normal",
+        "fictional": true
+      },
+      "after": {
+        "providerId": 1,
+        "address": "רחוב הבדיקה 25, עיר דמיונית — normal",
+        "changes": 25,
+        "mode": "normal",
+        "fictional": true
+      },
+      "job": {
+        "id": 190,
+        "status": "sent",
+        "attempts": 0,
+        "result": {
+          "success": true,
+          "message": "הכתובת עודכנה מ־רחוב הדוגמה 10, עיר ניסוי ל־רחוב הבדיקה 25, עיר דמיונית — normal.",
+          "data": {
+            "before": "רחוב הדוגמה 10, עיר ניסוי",
+            "after": "רחוב הבדיקה 25, עיר דמיונית — normal"
+          }
+        }
+      },
+      "finalState": "done",
+      "response": {
+        "note": "הכתובת עודכנה מ־רחוב הדוגמה 10, עיר ניסוי ל־רחוב הבדיקה 25, עיר דמיונית — normal.",
+        "actor": "",
+        "at": "2026-10-08T11:43:48.0301772",
+        "final": true
+      },
+      "history": [
+        {
+          "id": 394,
+          "actor": "",
+          "action": "הכתובת עודכנה",
+          "note": "הכתובת עודכנה מ־רחוב הדוגמה 10, עיר ניסוי ל־רחוב הבדיקה 25, עיר דמיונית — normal.",
+          "round": 1,
+          "at": "2026-10-08T11:43:48.0301772",
+          "isPublic": true
+        },
+        {
+          "id": 393,
+          "actor": "",
+          "action": "אישור ועדכון הכתובת",
+          "note": "",
+          "round": 1,
+          "at": "2026-10-08T11:43:47.7470745",
+          "isPublic": true
+        },
+        {
+          "id": 392,
+          "actor": "",
+          "action": "הגשת הבקשה",
+          "note": "",
+          "round": 1,
+          "at": "2026-10-08T11:43:47.5065336",
+          "isPublic": true
+        },
+        {
+          "id": 391,
+          "actor": "",
+          "action": "פתיחת פנייה",
+          "note": "",
+          "round": 0,
+          "at": "2026-10-08T11:43:47.0406245",
+          "isPublic": true
+        }
+      ],
+      "interruptionObserved": false
+    },
+    {
+      "mode": "reject",
+      "inquiryId": 87,
+      "before": {
+        "providerId": 1,
+        "address": "רחוב הדוגמה 10, עיר ניסוי",
+        "changes": 25,
+        "mode": "reject",
+        "fictional": true
+      },
+      "after": {
+        "providerId": 1,
+        "address": "רחוב הדוגמה 10, עיר ניסוי",
+        "changes": 25,
+        "mode": "reject",
+        "fictional": true
+      },
+      "job": {
+        "id": 194,
+        "status": "sent",
+        "attempts": 0,
+        "result": {
+          "success": false,
+          "message": "עדכון הכתובת נדחה ביעד ההדגמה; הכתובת לא השתנתה.",
+          "data": {
+            "before": "רחוב הדוגמה 10, עיר ניסוי",
+            "after": "רחוב הדוגמה 10, עיר ניסוי"
+          }
+        }
+      },
+      "finalState": "failed",
+      "response": {
+        "note": "עדכון הכתובת נדחה ביעד ההדגמה; הכתובת לא השתנתה.",
+        "actor": "",
+        "at": "2026-10-08T11:43:52.7096371",
+        "final": true
+      },
+      "history": [
+        {
+          "id": 398,
+          "actor": "",
+          "action": "עדכון הכתובת לא בוצע",
+          "note": "עדכון הכתובת נדחה ביעד ההדגמה; הכתובת לא השתנתה.",
+          "round": 1,
+          "at": "2026-10-08T11:43:52.7096371",
+          "isPublic": true
+        },
+        {
+          "id": 397,
+          "actor": "",
+          "action": "אישור ועדכון הכתובת",
+          "note": "",
+          "round": 1,
+          "at": "2026-10-08T11:43:48.6509094",
+          "isPublic": true
+        },
+        {
+          "id": 396,
+          "actor": "",
+          "action": "הגשת הבקשה",
+          "note": "",
+          "round": 1,
+          "at": "2026-10-08T11:43:48.5755704",
+          "isPublic": true
+        },
+        {
+          "id": 395,
+          "actor": "",
+          "action": "פתיחת פנייה",
+          "note": "",
+          "round": 0,
+          "at": "2026-10-08T11:43:48.5602932",
+          "isPublic": true
+        }
+      ],
+      "interruptionObserved": false
+    },
+    {
+      "mode": "interruptOnce",
+      "inquiryId": 88,
+      "before": {
+        "providerId": 1,
+        "address": "רחוב הדוגמה 10, עיר ניסוי",
+        "changes": 25,
+        "mode": "interruptOnce",
+        "fictional": true
+      },
+      "after": {
+        "providerId": 1,
+        "address": "רחוב הבדיקה 25, עיר דמיונית — interruptOnce",
+        "changes": 26,
+        "mode": "interruptOnce",
+        "fictional": true
+      },
+      "job": {
+        "id": 198,
+        "status": "sent",
+        "attempts": 1,
+        "result": {
+          "success": true,
+          "message": "הכתובת עודכנה מ־רחוב הדוגמה 10, עיר ניסוי ל־רחוב הבדיקה 25, עיר דמיונית — interruptOnce.",
+          "data": {
+            "before": "רחוב הדוגמה 10, עיר ניסוי",
+            "after": "רחוב הבדיקה 25, עיר דמיונית — interruptOnce"
+          }
+        }
+      },
+      "finalState": "done",
+      "response": {
+        "note": "הכתובת עודכנה מ־רחוב הדוגמה 10, עיר ניסוי ל־רחוב הבדיקה 25, עיר דמיונית — interruptOnce.",
+        "actor": "",
+        "at": "2026-10-08T11:44:03.3008709",
+        "final": true
+      },
+      "history": [
+        {
+          "id": 427,
+          "actor": "",
+          "action": "הכתובת עודכנה",
+          "note": "הכתובת עודכנה מ־רחוב הדוגמה 10, עיר ניסוי ל־רחוב הבדיקה 25, עיר דמיונית — interruptOnce.",
+          "round": 1,
+          "at": "2026-10-08T11:44:03.3008709",
+          "isPublic": true
+        },
+        {
+          "id": 401,
+          "actor": "",
+          "action": "אישור ועדכון הכתובת",
+          "note": "",
+          "round": 1,
+          "at": "2026-10-08T11:43:53.0220215",
+          "isPublic": true
+        },
+        {
+          "id": 400,
+          "actor": "",
+          "action": "הגשת הבקשה",
+          "note": "",
+          "round": 1,
+          "at": "2026-10-08T11:43:52.9724289",
+          "isPublic": true
+        },
+        {
+          "id": 399,
+          "actor": "",
+          "action": "פתיחת פנייה",
+          "note": "",
+          "round": 0,
+          "at": "2026-10-08T11:43:52.9575225",
+          "isPublic": true
+        }
+      ],
+      "interruptionObserved": true
+    },
+    {
+      "mode": "slow",
+      "inquiryId": 94,
+      "before": {
+        "providerId": 1,
+        "address": "רחוב הדוגמה 10, עיר ניסוי",
+        "changes": 26,
+        "mode": "slow",
+        "fictional": true
+      },
+      "after": {
+        "providerId": 1,
+        "address": "רחוב הבדיקה 25, עיר דמיונית — slow",
+        "changes": 27,
+        "mode": "slow",
+        "fictional": true
+      },
+      "job": {
+        "id": 208,
+        "status": "sent",
+        "attempts": 0,
+        "result": {
+          "success": true,
+          "message": "הכתובת עודכנה מ־רחוב הדוגמה 10, עיר ניסוי ל־רחוב הבדיקה 25, עיר דמיונית — slow.",
+          "data": {
+            "before": "רחוב הדוגמה 10, עיר ניסוי",
+            "after": "רחוב הבדיקה 25, עיר דמיונית — slow"
+          }
+        }
+      },
+      "finalState": "done",
+      "response": {
+        "note": "הכתובת עודכנה מ־רחוב הדוגמה 10, עיר ניסוי ל־רחוב הבדיקה 25, עיר דמיונית — slow.",
+        "actor": "",
+        "at": "2026-10-08T11:44:17.8149668",
+        "final": true
+      },
+      "history": [
+        {
+          "id": 431,
+          "actor": "",
+          "action": "הכתובת עודכנה",
+          "note": "הכתובת עודכנה מ־רחוב הדוגמה 10, עיר ניסוי ל־רחוב הבדיקה 25, עיר דמיונית — slow.",
+          "round": 1,
+          "at": "2026-10-08T11:44:17.8149668",
+          "isPublic": true
+        },
+        {
+          "id": 430,
+          "actor": "",
+          "action": "אישור ועדכון הכתובת",
+          "note": "",
+          "round": 1,
+          "at": "2026-10-08T11:44:03.5739431",
+          "isPublic": true
+        },
+        {
+          "id": 429,
+          "actor": "",
+          "action": "הגשת הבקשה",
+          "note": "",
+          "round": 1,
+          "at": "2026-10-08T11:44:03.522332",
+          "isPublic": true
+        },
+        {
+          "id": 428,
+          "actor": "",
+          "action": "פתיחת פנייה",
+          "note": "",
+          "round": 0,
+          "at": "2026-10-08T11:44:03.5113335",
+          "isPublic": true
+        }
+      ],
+      "interruptionObserved": false
+    }
+  ],
+  "genericMappingInquiry": 95,
+  "checks": [
+    "success before/after",
+    "failure no target mutation",
+    "commit-before-ack retry/idempotency",
+    "one completion/history/result",
+    "submission/approval guards",
+    "automatic completion cannot be called through API",
+    "queue/ownership/target access",
+    "configuration validation",
+    "generic input mapping"
+  ]
+}

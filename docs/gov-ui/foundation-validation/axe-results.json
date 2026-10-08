@@ -1,0 +1,1076 @@
+[
+  {
+    "name": "detail-closed-documents",
+    "width": 1440,
+    "url": "http://127.0.0.1:5081/cases/30",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 25,
+    "incomplete": []
+  },
+  {
+    "name": "detail-closed-documents",
+    "width": 768,
+    "url": "http://127.0.0.1:5081/cases/30",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 25,
+    "incomplete": []
+  },
+  {
+    "name": "detail-closed-documents",
+    "width": 375,
+    "url": "http://127.0.0.1:5081/cases/30",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 25,
+    "incomplete": []
+  },
+  {
+    "name": "detail-active-required-documents",
+    "width": 375,
+    "url": "http://127.0.0.1:5081/cases/1",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 27,
+    "incomplete": []
+  },
+  {
+    "name": "detail-active-actions",
+    "width": 1440,
+    "url": "http://127.0.0.1:5081/cases/19",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 25,
+    "incomplete": []
+  },
+  {
+    "name": "detail-active-actions",
+    "width": 768,
+    "url": "http://127.0.0.1:5081/cases/19",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 25,
+    "incomplete": []
+  },
+  {
+    "name": "detail-active-actions",
+    "width": 375,
+    "url": "http://127.0.0.1:5081/cases/19",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 25,
+    "incomplete": []
+  },
+  {
+    "name": "queue",
+    "width": 1440,
+    "url": "http://127.0.0.1:5081/cases",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 33,
+    "incomplete": []
+  },
+  {
+    "name": "queue",
+    "width": 768,
+    "url": "http://127.0.0.1:5081/cases",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 33,
+    "incomplete": []
+  },
+  {
+    "name": "queue",
+    "width": 375,
+    "url": "http://127.0.0.1:5081/cases",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 33,
+    "incomplete": []
+  },
+  {
+    "name": "create-required-documents",
+    "width": 1440,
+    "url": "http://127.0.0.1:5081/cases",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 24,
+    "incomplete": []
+  },
+  {
+    "name": "create-required-documents",
+    "width": 768,
+    "url": "http://127.0.0.1:5081/cases",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 24,
+    "incomplete": []
+  },
+  {
+    "name": "create-required-documents",
+    "width": 375,
+    "url": "http://127.0.0.1:5081/cases",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 24,
+    "incomplete": []
+  },
+  {
+    "name": "create-inline-error",
+    "width": 375,
+    "url": "http://127.0.0.1:5081/cases",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 24,
+    "incomplete": []
+  },
+  {
+    "name": "workflow-simple-selected-state",
+    "width": 1440,
+    "url": "http://127.0.0.1:5081/processes",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 30,
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              ".edge-label"
+            ],
+            "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "target": [
+              ".state-label[x=\"725\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"725\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"435\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"435\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"145\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"145\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "workflow-validation-error",
+    "width": 375,
+    "url": "http://127.0.0.1:5081/processes",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 30,
+    "incomplete": []
+  },
+  {
+    "name": "create-simple-no-documents",
+    "width": 375,
+    "url": "http://127.0.0.1:5081/cases",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 24,
+    "incomplete": []
+  },
+  {
+    "name": "workflow-complex-selected-state",
+    "width": 1440,
+    "url": "http://127.0.0.1:5081/processes",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 31,
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "text[x=\"871\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "target": [
+              "text[x=\"580\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "target": [
+              ".state-label[x=\"1015\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"1015\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"725\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"725\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"435\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"435\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[y=\"250\"][x=\"435\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[y=\"273\"][x=\"435\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[y=\"250\"][x=\"145\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[y=\"273\"][x=\"145\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"145\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"145\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "workflow-complex-selected-state",
+    "width": 768,
+    "url": "http://127.0.0.1:5081/processes",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 31,
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "text[x=\"871\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "target": [
+              "text[x=\"580\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "target": [
+              ".state-label[x=\"1015\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"1015\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"725\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"725\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"435\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"435\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[y=\"250\"][x=\"435\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[y=\"273\"][x=\"435\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[y=\"250\"][x=\"145\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[y=\"273\"][x=\"145\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"145\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"145\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "workflow-complex-selected-state",
+    "width": 375,
+    "url": "http://127.0.0.1:5081/processes",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 31,
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "text[x=\"871\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "target": [
+              "text[x=\"580\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "target": [
+              ".state-label[x=\"1015\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"1015\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"725\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"725\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"435\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"435\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[y=\"250\"][x=\"435\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[y=\"273\"][x=\"435\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[y=\"250\"][x=\"145\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[y=\"273\"][x=\"145\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"145\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"145\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "final-detail",
+    "width": 1440,
+    "url": "http://127.0.0.1:5081/cases/32",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 25,
+    "incomplete": []
+  },
+  {
+    "name": "final-detail",
+    "width": 768,
+    "url": "http://127.0.0.1:5081/cases/32",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 25,
+    "incomplete": []
+  },
+  {
+    "name": "final-detail",
+    "width": 375,
+    "url": "http://127.0.0.1:5081/cases/32",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 25,
+    "incomplete": []
+  },
+  {
+    "name": "final-queue",
+    "width": 1440,
+    "url": "http://127.0.0.1:5081/cases",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 33,
+    "incomplete": []
+  },
+  {
+    "name": "final-queue",
+    "width": 768,
+    "url": "http://127.0.0.1:5081/cases",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 33,
+    "incomplete": []
+  },
+  {
+    "name": "final-queue",
+    "width": 375,
+    "url": "http://127.0.0.1:5081/cases",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 33,
+    "incomplete": []
+  },
+  {
+    "name": "final-create",
+    "width": 1440,
+    "url": "http://127.0.0.1:5081/cases",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 24,
+    "incomplete": []
+  },
+  {
+    "name": "final-create",
+    "width": 768,
+    "url": "http://127.0.0.1:5081/cases",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 24,
+    "incomplete": []
+  },
+  {
+    "name": "final-create",
+    "width": 375,
+    "url": "http://127.0.0.1:5081/cases",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 24,
+    "incomplete": []
+  },
+  {
+    "name": "final-workflow-selected-transition",
+    "width": 1440,
+    "url": "http://127.0.0.1:5081/processes",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 31,
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "text[x=\"871\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "target": [
+              "text[x=\"580\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "target": [
+              ".state-label[x=\"1015\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"1015\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"725\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"725\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"435\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"435\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[y=\"250\"][x=\"435\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[y=\"273\"][x=\"435\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[y=\"250\"][x=\"145\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[y=\"273\"][x=\"145\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"145\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"145\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "final-workflow-selected-transition",
+    "width": 768,
+    "url": "http://127.0.0.1:5081/processes",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 31,
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "text[x=\"871\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "target": [
+              "text[x=\"580\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "target": [
+              ".state-label[x=\"1015\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"1015\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"725\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"725\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"435\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"435\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[y=\"250\"][x=\"435\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[y=\"273\"][x=\"435\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[y=\"250\"][x=\"145\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[y=\"273\"][x=\"145\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"145\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"145\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "final-workflow-selected-transition",
+    "width": 375,
+    "url": "http://127.0.0.1:5081/processes",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 31,
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "text[x=\"871\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "target": [
+              "text[x=\"580\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "target": [
+              ".state-label[x=\"1015\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"1015\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"725\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"725\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"435\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"435\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[y=\"250\"][x=\"435\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[y=\"273\"][x=\"435\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[y=\"250\"][x=\"145\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[y=\"273\"][x=\"145\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"145\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"145\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "workflow-long-hebrew-state",
+    "width": 375,
+    "url": "http://127.0.0.1:5081/processes",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 31,
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "text[x=\"871\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "target": [
+              "text[x=\"580\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "target": [
+              ".state-label[x=\"1015\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"1015\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"725\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"725\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"435\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"435\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[y=\"250\"][x=\"435\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[y=\"273\"][x=\"435\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[y=\"250\"][x=\"145\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[y=\"273\"][x=\"145\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[x=\"145\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"145\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "workflow-expanded-condition",
+    "width": 375,
+    "url": "http://127.0.0.1:5081/processes",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 31,
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          {
+            "target": [
+              "text[y=\"157.75\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "target": [
+              "text[y=\"248\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "target": [
+              "text[y=\"83.25\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+          },
+          {
+            "target": [
+              ".state-label[x=\"435\"][y=\"80\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[x=\"435\"][y=\"103\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-label[y=\"80\"][x=\"145\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".state-kind[y=\"103\"][x=\"145\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              "text[y=\"250\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              "text[y=\"273\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              "text[y=\"420\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              "text[y=\"443\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+          },
+          {
+            "target": [
+              ".payload-route-editor[open=\"\"] > .stack > .payload-condition > .stack > label:nth-child(1)"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+          },
+          {
+            "target": [
+              ".payload-route-editor[open=\"\"] > .stack > .payload-condition > .stack > label:nth-child(2)"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+          },
+          {
+            "target": [
+              ".payload-route-editor[open=\"\"] > .stack > .payload-condition > .stack > label:nth-child(3)"
+            ],
+            "summary": "Fix any of the following:\n  Element's background color could not be determined because it's partially obscured by another element"
+          }
+        ]
+      }
+    ]
+  }
+]

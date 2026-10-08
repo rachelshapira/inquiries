@@ -1,0 +1,89 @@
+{
+  "passed": true,
+  "workflow": {
+    "id": 3,
+    "key": "payment-inquiry",
+    "number": 1,
+    "publishedAt": "2026-10-06T10:44:42.6075952",
+    "definition": {
+      "name": "בירור תשלום עבור שירות",
+      "initialState": "draft",
+      "fields": [
+        {
+          "key": "details",
+          "label": "פרטי הבקשה",
+          "type": "textarea",
+          "required": false,
+          "viewRoles": [
+            "Provider",
+            "Reviewer",
+            "Approver",
+            "Admin"
+          ],
+          "editRoles": [
+            "Provider",
+            "Admin"
+          ],
+          "editStates": [
+            "draft"
+          ]
+        }
+      ],
+      "states": [
+        {
+          "key": "draft",
+          "label": "Submitted",
+          "terminal": false
+        },
+        {
+          "key": "review",
+          "label": "InTreatment",
+          "terminal": false
+        },
+        {
+          "key": "approved",
+          "label": "ClosedWithResponse",
+          "terminal": true
+        }
+      ],
+      "transitions": [
+        {
+          "key": "submit",
+          "label": "התחלת טיפול",
+          "from": "draft",
+          "to": "review",
+          "roles": [
+            "Admin",
+            "Reviewer"
+          ],
+          "guard": "none",
+          "effects": [],
+          "routes": null
+        },
+        {
+          "key": "recommend",
+          "label": "מענה וסגירת הפנייה",
+          "from": "review",
+          "to": "approved",
+          "roles": [
+            "Admin",
+            "Reviewer"
+          ],
+          "guard": "reason",
+          "effects": [],
+          "routes": null
+        }
+      ],
+      "documents": []
+    }
+  },
+  "inquiryId": 6,
+  "checks": [
+    "Provider action rejected: 403",
+    "Wrong-state action rejected: 403",
+    "Empty response rejected: 400",
+    "Stale version rejected: 409",
+    "Rejected requests leave state, version and history unchanged",
+    "Response and final state committed through Engine.Execute"
+  ]
+}

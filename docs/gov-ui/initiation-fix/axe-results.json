@@ -1,0 +1,83 @@
+[
+  {
+    "name": "initiation-authorized-draft",
+    "width": 1440,
+    "url": "http://127.0.0.1:5081/cases/8?created=1",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 30,
+    "incomplete": []
+  },
+  {
+    "name": "initiation-authorized-draft",
+    "width": 768,
+    "url": "http://127.0.0.1:5081/cases/8?created=1",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 30,
+    "incomplete": []
+  },
+  {
+    "name": "initiation-authorized-draft",
+    "width": 375,
+    "url": "http://127.0.0.1:5081/cases/8?created=1",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 30,
+    "incomplete": []
+  },
+  {
+    "name": "initiation-readonly-draft",
+    "width": 1440,
+    "url": "http://127.0.0.1:5081/cases/8",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 29,
+    "incomplete": []
+  },
+  {
+    "name": "initiation-readonly-draft",
+    "width": 768,
+    "url": "http://127.0.0.1:5081/cases/8",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 29,
+    "incomplete": []
+  },
+  {
+    "name": "initiation-readonly-draft",
+    "width": 375,
+    "url": "http://127.0.0.1:5081/cases/8",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 29,
+    "incomplete": []
+  },
+  {
+    "name": "initiation-create",
+    "width": 1440,
+    "url": "http://127.0.0.1:5081/cases?new=1",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 24,
+    "incomplete": []
+  },
+  {
+    "name": "initiation-create",
+    "width": 768,
+    "url": "http://127.0.0.1:5081/cases?new=1",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 24,
+    "incomplete": []
+  },
+  {
+    "name": "initiation-create",
+    "width": 375,
+    "url": "http://127.0.0.1:5081/cases?new=1",
+    "axe": "4.13.0",
+    "violations": [],
+    "passes": 24,
+    "incomplete": []
+  }
+]

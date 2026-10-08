@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "baseURL": "http://127.0.0.1:5081",
+  "inquiryId": 7,
+  "title": "בירור תשלום עבור שירות סיעוד – E2E 1791283933715",
+  "processKey": "payment-inquiry",
+  "processNumber": 1,
+  "response": "התשלום עבור השירות אושר ונכלל במחזור התשלומים הבא. מספר האסמכתה: PAY-2026-1042.",
+  "states": [
+    "Submitted",
+    "InTreatment",
+    "ClosedWithResponse"
+  ],
+  "history": [
+    "מענה וסגירת הפנייההתשלום עבור השירות אושר ונכלל במחזור התשלומים הבא. מספר האסמכתה: PAY-2026-1042.יעל ישראלי · 06.10.2026 10:52סבב 0",
+    "התחלת טיפוליעל ישראלי · 06.10.2026 10:52סבב 0",
+    "פתיחת פנייהניתוב אוטומטי ל־מחוז מרכז · ברירת מחדלנועה לוי · 06.10.2026 10:52סבב 0"
+  ],
+  "checks": [
+    "Workflow configured through existing visual editor",
+    "External submission: number exists, configured workflow, Submitted start state, no employee transition exposed",
+    "Employee queue, allowed transition to InTreatment, wrong-state action unavailable, empty response cannot close",
+    "Response and final state persist after reload",
+    "External user opens same inquiry, sees persisted response, final status and workflow history"
+  ],
+  "execution": "Saved Playwright scenario passed through supported in-app Playwright interface; CLI worker spawn EPERM."
+}

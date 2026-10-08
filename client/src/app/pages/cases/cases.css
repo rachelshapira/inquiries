@@ -1,0 +1,5 @@
+.wizard-steps { display: flex; flex-wrap: wrap; gap: 12px 24px; list-style: none; padding: 0; margin: 24px 0; color: var(--service-muted); }
+.wizard-steps li { padding-block: 8px; border-bottom: 2px solid var(--service-divider); }
+.wizard-steps li[aria-current="step"] { color: var(--service-ink); font-weight: 500; border-color: var(--service-primary); }
+.wizard-steps .completed { color: var(--service-ink); }
+.wizard-heading:focus { outline: 2px solid var(--service-primary); outline-offset: 4px; }

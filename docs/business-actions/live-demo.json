@@ -1,0 +1,102 @@
+{
+  "url": "http://127.0.0.1:5080/cases/15",
+  "processId": 7,
+  "processKey": "local-address-demo",
+  "inquiryId": 15,
+  "providerId": 1,
+  "before": {
+    "providerId": 1,
+    "address": "רחוב הדוגמה 10, עיר ניסוי",
+    "changes": 0,
+    "mode": "normal",
+    "fictional": true
+  },
+  "after": {
+    "providerId": 1,
+    "address": "רחוב העתיד 40, עיר דמיונית",
+    "changes": 1,
+    "mode": "normal",
+    "fictional": true
+  },
+  "final": {
+    "id": 15,
+    "title": "עדכון כתובת למשלוח הודעות — הדגמה מקומית",
+    "providerId": 1,
+    "providerName": "אופק שירותי סיעוד",
+    "state": "done",
+    "stateLabel": "הכתובת עודכנה",
+    "unit": "care",
+    "routing": null,
+    "assigneeId": null,
+    "round": 1,
+    "version": 5,
+    "createdAt": "2026-10-07T10:18:21.1322351",
+    "updatedAt": "2026-10-07T10:18:24.572111",
+    "processVersionId": 7,
+    "processName": "בקשה לשינוי כתובת — הדגמה מקומית",
+    "processNumber": 1,
+    "response": {
+      "note": "הכתובת עודכנה מ־רחוב הדוגמה 10, עיר ניסוי ל־רחוב העתיד 40, עיר דמיונית.",
+      "actor": "",
+      "at": "2026-10-07T10:18:24.5721113",
+      "final": true
+    },
+    "data": {
+      "requestedAddress": "רחוב העתיד 40, עיר דמיונית"
+    },
+    "fields": [
+      {
+        "key": "requestedAddress",
+        "label": "כתובת חדשה (נתוני הדגמה בלבד)",
+        "type": "textarea",
+        "required": true,
+        "editable": false
+      }
+    ],
+    "requiredDocuments": [],
+    "canUpload": false,
+    "canWrite": true,
+    "actions": [],
+    "documents": [],
+    "tasks": [],
+    "history": [
+      {
+        "id": 57,
+        "actor": "",
+        "action": "הכתובת עודכנה",
+        "note": "הכתובת עודכנה מ־רחוב הדוגמה 10, עיר ניסוי ל־רחוב העתיד 40, עיר דמיונית.",
+        "round": 1,
+        "at": "2026-10-07T10:18:24.5721113",
+        "isPublic": true
+      },
+      {
+        "id": 56,
+        "actor": "",
+        "action": "אישור ועדכון הכתובת",
+        "note": "",
+        "round": 1,
+        "at": "2026-10-07T10:18:21.3514587",
+        "isPublic": true
+      },
+      {
+        "id": 55,
+        "actor": "",
+        "action": "הגשת הבקשה",
+        "note": "",
+        "round": 1,
+        "at": "2026-10-07T10:18:21.3243423",
+        "isPublic": true
+      },
+      {
+        "id": 54,
+        "actor": "",
+        "action": "פתיחת פנייה",
+        "note": "",
+        "round": 0,
+        "at": "2026-10-07T10:18:21.1506699",
+        "isPublic": true
+      }
+    ]
+  },
+  "fictionalOnly": true
+}

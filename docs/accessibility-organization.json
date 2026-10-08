@@ -1,0 +1,238 @@
+{
+  "reports": [
+    {
+      "url": "http://127.0.0.1:5081/organization",
+      "axe": "4.13.0",
+      "violations": [],
+      "passes": 26,
+      "incomplete": []
+    },
+    {
+      "url": "http://127.0.0.1:5081/organization",
+      "axe": "4.13.0",
+      "violations": [],
+      "passes": 29,
+      "incomplete": []
+    },
+    {
+      "url": "http://127.0.0.1:5081/organization",
+      "axe": "4.13.0",
+      "violations": [],
+      "passes": 29,
+      "incomplete": []
+    },
+    {
+      "url": "http://127.0.0.1:5081/processes",
+      "axe": "4.13.0",
+      "violations": [],
+      "passes": 32,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                "text[y=\"53.5\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[y=\"128.5\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-label[x=\"1015\"][y=\"80\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-kind[x=\"1015\"][y=\"103\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-label[x=\"725\"][y=\"80\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-kind[x=\"725\"][y=\"103\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-label[x=\"435\"][y=\"80\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-kind[x=\"435\"][y=\"103\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-label[y=\"230\"][x=\"435\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-kind[y=\"253\"][x=\"435\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-label[x=\"145\"][y=\"80\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-kind[x=\"145\"][y=\"103\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-label[y=\"230\"][x=\"725\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-kind[y=\"253\"][x=\"725\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5081/routing?process=document-submission",
+      "axe": "4.13.0",
+      "violations": [],
+      "passes": 30,
+      "incomplete": []
+    },
+    {
+      "url": "http://127.0.0.1:5081/routing?process=document-submission",
+      "axe": "4.13.0",
+      "violations": [],
+      "passes": 30,
+      "incomplete": []
+    },
+    {
+      "url": "http://127.0.0.1:5081/processes",
+      "axe": "4.13.0",
+      "violations": [],
+      "passes": 32,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                "text[y=\"53.5\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because element contains an image node"
+            },
+            {
+              "target": [
+                "text[y=\"128.5\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-label[x=\"1015\"][y=\"80\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-kind[x=\"1015\"][y=\"103\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-label[x=\"725\"][y=\"80\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-kind[x=\"725\"][y=\"103\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-label[x=\"435\"][y=\"80\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-kind[x=\"435\"][y=\"103\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-label[y=\"230\"][x=\"435\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-kind[y=\"253\"][x=\"435\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-label[x=\"145\"][y=\"80\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-kind[x=\"145\"][y=\"103\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-label[y=\"230\"][x=\"725\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-kind[y=\"253\"][x=\"725\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "manualGraphContrast": {
+    "minimum": 5.28,
+    "wcagAA": 4.5,
+    "note": "AXE cannot determine SVG text backgrounds. Checked graph colors against white, selected and terminal node backgrounds and edge label background."
+  }
+}

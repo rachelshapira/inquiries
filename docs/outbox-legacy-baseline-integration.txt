@@ -1,0 +1,11 @@
+PASS authentication required
+PASS branch subtree and central configuration permissions
+PASS dynamic field routing, priority and missing-field semantics
+Traceback (most recent call last):
+  File "C:\Users\shapira\Documents\Codex\2026-10-04\skill-creator-c-users-shapira-codex\outputs\workflow-system\checks\integration.py", line 46, in <module>
+    c=admin.call('/cases','POST',payload);cid=c['id']
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shapira\Documents\Codex\2026-10-04\skill-creator-c-users-shapira-codex\outputs\workflow-system\checks\integration.py", line 18, in call
+    assert code==status,(method,path,code,value.decode(errors='replace')[:700])
+           ^^^^^^^^^^^^
+AssertionError: ('POST', '/cases', 403, '{"error":"��� ����� ������ ����� ������ ��"}')

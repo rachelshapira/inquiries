@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "inquiryId": 51,
+  "title": "בירור תשלום עם מסמכים – E2E 1791368181308",
+  "response": "החשבונית ואישור ביצוע השירות התקבלו. הבירור הושלם; התשלום יטופל במחזור הבא.",
+  "processKey": "payment-inquiry",
+  "processNumber": 2,
+  "states": [
+    "Draft",
+    "Submitted",
+    "InTreatment",
+    "ClosedWithResponse"
+  ],
+  "history": [
+    "מענה וסגירת הפנייההחשבונית ואישור ביצוע השירות התקבלו. הבירור הושלם; התשלום יטופל במחזור הבא.07.10.2026 10:16",
+    "התחלת טיפול07.10.2026 10:16",
+    "הגשת הפנייה07.10.2026 10:16",
+    "העלאת מסמךאישור ביצוע שירות07.10.2026 10:16",
+    "העלאת מסמךחשבונית07.10.2026 10:16",
+    "עדכון פרטים07.10.2026 10:16",
+    "פתיחת פנייה07.10.2026 10:16"
+  ],
+  "checks": [
+    "Missing required fields block submission",
+    "Each required document blocks submission until uploaded",
+    "Real UI file uploads",
+    "Employee queue and existing transitions",
+    "Persisted response and final external view"
+  ]
+}

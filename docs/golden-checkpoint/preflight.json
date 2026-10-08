@@ -1,0 +1,188 @@
+{
+  "simple": "SKIPPED — MISSING EXISTING TEST CONFIGURATION",
+  "simpleReason": "No latest process eligible to the existing external user has documents=[]. Historical payment v1 is obsolete and does not permit that external role.",
+  "partial": "SKIPPED — NO EXISTING PARTIAL-ELIGIBILITY CONFIGURATION",
+  "authorizationApi": "PASS",
+  "authorizedControlInquiry": 12,
+  "process": {
+    "id": 6,
+    "key": "payment-inquiry",
+    "number": 2,
+    "publishedAt": "2026-10-06T11:10:02.7239578",
+    "definition": {
+      "name": "בירור תשלום עבור שירות",
+      "initialState": "draft",
+      "fields": [
+        {
+          "key": "details",
+          "label": "פרטי הבקשה",
+          "type": "textarea",
+          "required": true,
+          "viewRoles": [
+            "Provider",
+            "Reviewer",
+            "Approver",
+            "Admin"
+          ],
+          "editRoles": [
+            "Provider",
+            "Admin"
+          ],
+          "editStates": [
+            "draft"
+          ]
+        },
+        {
+          "key": "field1791284973676",
+          "label": "מספר חשבונית",
+          "type": "text",
+          "required": true,
+          "viewRoles": [
+            "Provider",
+            "Reviewer",
+            "Approver",
+            "Admin"
+          ],
+          "editRoles": [
+            "Provider",
+            "Admin"
+          ],
+          "editStates": [
+            "draft"
+          ]
+        },
+        {
+          "key": "field1791284983582",
+          "label": "סכום לתשלום",
+          "type": "number",
+          "required": true,
+          "viewRoles": [
+            "Provider",
+            "Reviewer",
+            "Approver",
+            "Admin"
+          ],
+          "editRoles": [
+            "Provider",
+            "Admin"
+          ],
+          "editStates": [
+            "draft"
+          ]
+        },
+        {
+          "key": "field1791284985296",
+          "label": "תאריך השירות",
+          "type": "date",
+          "required": true,
+          "viewRoles": [
+            "Provider",
+            "Reviewer",
+            "Approver",
+            "Admin"
+          ],
+          "editRoles": [
+            "Provider",
+            "Admin"
+          ],
+          "editStates": [
+            "draft"
+          ]
+        },
+        {
+          "key": "field1791284986926",
+          "label": "דואר אלקטרוני למענה",
+          "type": "email",
+          "required": true,
+          "viewRoles": [
+            "Provider",
+            "Reviewer",
+            "Approver",
+            "Admin"
+          ],
+          "editRoles": [
+            "Provider",
+            "Admin"
+          ],
+          "editStates": [
+            "draft"
+          ]
+        }
+      ],
+      "states": [
+        {
+          "key": "draft",
+          "label": "Draft",
+          "terminal": false
+        },
+        {
+          "key": "review",
+          "label": "InTreatment",
+          "terminal": false
+        },
+        {
+          "key": "approved",
+          "label": "ClosedWithResponse",
+          "terminal": true
+        },
+        {
+          "key": "state1791284900479",
+          "label": "Submitted",
+          "terminal": false
+        }
+      ],
+      "transitions": [
+        {
+          "key": "submit",
+          "label": "הגשת הפנייה",
+          "from": "draft",
+          "to": "state1791284900479",
+          "roles": [
+            "Admin",
+            "Provider"
+          ],
+          "guard": "submission",
+          "effects": [
+            "newRound"
+          ],
+          "routes": null
+        },
+        {
+          "key": "recommend",
+          "label": "מענה וסגירת הפנייה",
+          "from": "review",
+          "to": "approved",
+          "roles": [
+            "Admin",
+            "Reviewer"
+          ],
+          "guard": "reason",
+          "effects": [],
+          "routes": null
+        },
+        {
+          "key": "action1791284904253",
+          "label": "התחלת טיפול",
+          "from": "state1791284900479",
+          "to": "review",
+          "roles": [
+            "Admin",
+            "Reviewer"
+          ],
+          "guard": "none",
+          "effects": [],
+          "routes": null
+        }
+      ],
+      "documents": [
+        "חשבונית",
+        "אישור ביצוע שירות"
+      ]
+    }
+  },
+  "providerId": 1,
+  "external": "provider",
+  "employee": "reviewer",
+  "denied": "approver",
+  "configurationWrites": 0
+}

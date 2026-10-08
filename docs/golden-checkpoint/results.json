@@ -1,0 +1,14 @@
+{
+  "simple": "SKIPPED — MISSING EXISTING TEST CONFIGURATION",
+  "requiredDocuments": "PASS",
+  "authorization": "PASS",
+  "partialEligibility": "SKIPPED — NO EXISTING PARTIAL-ELIGIBILITY CONFIGURATION",
+  "regression": "PASS: 11 server validation/access checks + 10 presentation checks",
+  "genericity": "PASS: no process/document/user-specific application behavior introduced",
+  "configurationWrites": 0,
+  "productCodeChangesThisCheckpoint": 0,
+  "inquiryId": 13,
+  "unitTests": "Known spawn EPERM; not retried or changed",
+  "gitStatus": "Not a Git repository; no commit",
+  "runtime": "Main application remains on 5080; isolated QA stopped"
+}

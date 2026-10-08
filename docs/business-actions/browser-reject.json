@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "inquiryId": 44,
+  "expected": "failed",
+  "before": "רחוב הדוגמה 10, עיר ניסוי",
+  "after": "רחוב ניסוי 99, עיר דמיונית",
+  "response": "עדכון הכתובת נדחה ביעד ההדגמה; הכתובת לא השתנתה.",
+  "steps": [
+    "External user creates configured dynamic no-document inquiry and submits through workflow guard",
+    "Employee finds same inquiry in queue; approval queues action; waiting state exposes no manual completion",
+    "Target outcome triggers configured automatic workflow transition and public response",
+    "Same external owner reloads final result, before/after and public history; internal approval note stays private"
+  ],
+  "targetVerified": true,
+  "targetBefore": {
+    "providerId": 1,
+    "address": "רחוב הדוגמה 10, עיר ניסוי",
+    "changes": 7,
+    "mode": "reject",
+    "fictional": true
+  },
+  "targetAfter": {
+    "providerId": 1,
+    "address": "רחוב הדוגמה 10, עיר ניסוי",
+    "changes": 7,
+    "mode": "reject",
+    "fictional": true
+  },
+  "operation": {
+    "id": 75,
+    "status": "sent",
+    "attempts": 0,
+    "result": {
+      "success": false,
+      "message": "עדכון הכתובת נדחה ביעד ההדגמה; הכתובת לא השתנתה.",
+      "data": {
+        "before": "רחוב הדוגמה 10, עיר ניסוי",
+        "after": "רחוב הדוגמה 10, עיר ניסוי"
+      }
+    }
+  }
+}

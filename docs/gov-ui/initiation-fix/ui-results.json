@@ -1,0 +1,33 @@
+[
+  {
+    "scenario": "Approver direct creation navigation",
+    "url": "http://127.0.0.1:5081/cases",
+    "createButtons": 0,
+    "creationForms": 0
+  },
+  {
+    "scenario": "Read-only direct creation navigation",
+    "url": "http://127.0.0.1:5081/cases",
+    "createButtons": 0,
+    "creationForms": 0
+  },
+  {
+    "scenario": "Read-only dashboard",
+    "createLinks": 0
+  },
+  {
+    "scenario": "Provider eligible process selector",
+    "options": [
+      "הגשת מסמכים",
+      "בירור תשלום עבור שירות",
+      "חידוש הסכם",
+      "בקשה ללא מסמכים",
+      "בקשה ללא מסמכים"
+    ]
+  },
+  {
+    "focused": "documents-heading",
+    "outline": "rgb(0, 104, 245) solid 2px",
+    "scenario": "Keyboard document jump"
+  }
+]

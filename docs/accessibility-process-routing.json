@@ -1,0 +1,116 @@
+{
+  "reports": [
+    {
+      "url": "http://127.0.0.1:5081/processes",
+      "axe": "4.13.0",
+      "violations": [],
+      "passes": 30,
+      "incomplete": []
+    },
+    {
+      "url": "http://127.0.0.1:5081/processes",
+      "axe": "4.13.0",
+      "violations": [],
+      "passes": 30,
+      "incomplete": []
+    },
+    {
+      "url": "http://127.0.0.1:5081/processes",
+      "axe": "4.13.0",
+      "violations": [],
+      "passes": 32,
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            {
+              "target": [
+                "text[y=\"157.75\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+            },
+            {
+              "target": [
+                "text[y=\"248\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+            },
+            {
+              "target": [
+                "text[y=\"83.25\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element content is too short to determine if it is actual text content"
+            },
+            {
+              "target": [
+                ".state-label[x=\"435\"][y=\"80\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-kind[x=\"435\"][y=\"103\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-label[y=\"80\"][x=\"145\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                ".state-kind[y=\"103\"][x=\"145\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                "text[y=\"250\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                "text[y=\"273\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                "text[y=\"420\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            },
+            {
+              "target": [
+                "text[y=\"443\"]"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "http://127.0.0.1:5081/processes",
+      "axe": "4.13.0",
+      "violations": [],
+      "passes": 30,
+      "incomplete": []
+    }
+  ],
+  "manualReview": {
+    "svgContrast": "SVG text backgrounds reviewed visually; colors unchanged from organization audit (minimum 5.28:1).",
+    "mobile": {
+      "viewport": 360,
+      "scrollWidth": 360
+    },
+    "behavior": [
+      "Disabled test rule saved under its process",
+      "Rule absent when switching process",
+      "Simulation restricted to selected process"
+    ]
+  }
+}

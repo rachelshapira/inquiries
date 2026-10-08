@@ -1,0 +1,200 @@
+{
+  "passed": true,
+  "draftInquiryId": 89,
+  "completedInquiryId": 51,
+  "workflow": {
+    "id": 6,
+    "key": "payment-inquiry",
+    "number": 2,
+    "publishedAt": "2026-10-06T11:10:02.7239578",
+    "definition": {
+      "name": "בירור תשלום עבור שירות",
+      "initialState": "draft",
+      "fields": [
+        {
+          "key": "details",
+          "label": "פרטי הבקשה",
+          "type": "textarea",
+          "required": true,
+          "viewRoles": [
+            "Provider",
+            "Reviewer",
+            "Approver",
+            "Admin"
+          ],
+          "editRoles": [
+            "Provider",
+            "Admin"
+          ],
+          "editStates": [
+            "draft"
+          ]
+        },
+        {
+          "key": "field1791284973676",
+          "label": "מספר חשבונית",
+          "type": "text",
+          "required": true,
+          "viewRoles": [
+            "Provider",
+            "Reviewer",
+            "Approver",
+            "Admin"
+          ],
+          "editRoles": [
+            "Provider",
+            "Admin"
+          ],
+          "editStates": [
+            "draft"
+          ]
+        },
+        {
+          "key": "field1791284983582",
+          "label": "סכום לתשלום",
+          "type": "number",
+          "required": true,
+          "viewRoles": [
+            "Provider",
+            "Reviewer",
+            "Approver",
+            "Admin"
+          ],
+          "editRoles": [
+            "Provider",
+            "Admin"
+          ],
+          "editStates": [
+            "draft"
+          ]
+        },
+        {
+          "key": "field1791284985296",
+          "label": "תאריך השירות",
+          "type": "date",
+          "required": true,
+          "viewRoles": [
+            "Provider",
+            "Reviewer",
+            "Approver",
+            "Admin"
+          ],
+          "editRoles": [
+            "Provider",
+            "Admin"
+          ],
+          "editStates": [
+            "draft"
+          ]
+        },
+        {
+          "key": "field1791284986926",
+          "label": "דואר אלקטרוני למענה",
+          "type": "email",
+          "required": true,
+          "viewRoles": [
+            "Provider",
+            "Reviewer",
+            "Approver",
+            "Admin"
+          ],
+          "editRoles": [
+            "Provider",
+            "Admin"
+          ],
+          "editStates": [
+            "draft"
+          ]
+        }
+      ],
+      "states": [
+        {
+          "key": "draft",
+          "label": "Draft",
+          "terminal": false
+        },
+        {
+          "key": "review",
+          "label": "InTreatment",
+          "terminal": false
+        },
+        {
+          "key": "approved",
+          "label": "ClosedWithResponse",
+          "terminal": true
+        },
+        {
+          "key": "state1791284900479",
+          "label": "Submitted",
+          "terminal": false
+        }
+      ],
+      "transitions": [
+        {
+          "key": "submit",
+          "label": "הגשת הפנייה",
+          "from": "draft",
+          "to": "state1791284900479",
+          "roles": [
+            "Admin",
+            "Provider"
+          ],
+          "guard": "submission",
+          "effects": [
+            "newRound"
+          ],
+          "routes": null,
+          "businessAction": null,
+          "trigger": "user"
+        },
+        {
+          "key": "recommend",
+          "label": "מענה וסגירת הפנייה",
+          "from": "review",
+          "to": "approved",
+          "roles": [
+            "Admin",
+            "Reviewer"
+          ],
+          "guard": "reason",
+          "effects": [],
+          "routes": null,
+          "businessAction": null,
+          "trigger": "user"
+        },
+        {
+          "key": "action1791284904253",
+          "label": "התחלת טיפול",
+          "from": "state1791284900479",
+          "to": "review",
+          "roles": [
+            "Admin",
+            "Reviewer"
+          ],
+          "guard": "none",
+          "effects": [],
+          "routes": null,
+          "businessAction": null,
+          "trigger": "user"
+        }
+      ],
+      "documents": [
+        "חשבונית",
+        "אישור ביצוע שירות"
+      ]
+    }
+  },
+  "checks": [
+    "Missing field rejected without transition: פרטי הבקשה",
+    "Missing field rejected without transition: מספר חשבונית",
+    "Missing field rejected without transition: סכום לתשלום",
+    "Missing field rejected without transition: תאריך השירות",
+    "Missing field rejected without transition: דואר אלקטרוני למענה",
+    "Missing document rejected by the server",
+    "Invalid typed value rejected: number",
+    "Invalid typed value rejected: date",
+    "Invalid typed value rejected: email",
+    "All five form values persist and are visible to the external owner",
+    "External and employee downloads match actual PDFs; unrelated provider denied"
+  ]
+}

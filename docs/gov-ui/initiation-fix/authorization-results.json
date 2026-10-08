@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "checks": [
+    "Unauthenticated options rejected",
+    "Provider receives latest eligible processes and own provider only",
+    "Administrative role cannot initiate inquiries even when workflow transitions include Admin",
+    "Reviewer cannot initiate baseline processes via API",
+    "Approver cannot initiate baseline processes via API",
+    "Read-only user has no eligibility and POST is rejected",
+    "Partial process access: permitted process visible, forbidden process hidden and API rejected",
+    "No-document workflow creates and executes existing transition",
+    "Workflow configuration grants Reviewer initiation without role-specific code",
+    "Cross-provider scope remains enforced"
+  ],
+  "readonlyAccount": "readonly-256ac799",
+  "paymentProcess": 6,
+  "forbiddenProcess": 41,
+  "noDocumentsProcess": 42,
+  "noDocumentsInquiry": 90,
+  "reviewerProcess": 43
+}

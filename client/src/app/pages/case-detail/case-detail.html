@@ -1,0 +1,175 @@
+<article class="service-page">
+  <a routerLink="/cases" class="service-back">חזרה לפניות</a>
+  @if (item(); as c) {
+    <header class="page-heading service-heading">
+      <div>
+        <div class="service-identity"><p class="eyebrow"><strong>פנייה <bdi>#{{ c.id }}</bdi></strong> · {{ c.processName }}</p><span class="badge service-status" [attr.data-state]="c.state">{{ stateLabel(c.stateLabel) }}</span>@if (c.actions.length) { <button type="button" class="text-button service-action-jump" aria-controls="actions-heading" (click)="jumpToActions()">להמשך הטיפול</button> }</div>
+        <h1 dir="auto">{{ businessTitle(c.title, c.processName) }}</h1>
+        <p class="service-meta">{{ c.providerName }} · נפתחה ב־<bdi>{{ c.createdAt | date: 'dd.MM.yyyy' }}</bdi></p>
+      </div>
+    </header>
+    @if (route.snapshot.queryParamMap.has('created') && c.canUpload && c.requiredDocuments.length) {
+      <p class="service-help">הפנייה נוצרה כטיוטה. יש להשלים את הפרטים ואת המסמכים לפני ההגשה.
+        <button type="button" class="text-button" aria-controls="documents-heading" (click)="jumpToDocuments()">לצירוף המסמכים הנדרשים</button>
+      </p>
+    }
+    @if (pendingBusiness(); as operation) {
+      <section class="service-section" aria-labelledby="business-progress-heading">
+        <h2 id="business-progress-heading">{{ operation.status === 'blocked' ? 'הפעולה ממתינה לבירור' : 'ממתינים לתוצאת הפעולה' }}</h2>
+        <p role="status">{{ operation.status === 'blocked' ? 'הפעולה טרם הושלמה. נדרשת בדיקה של הגורם המטפל.' : 'הבקשה אושרה ונשלחה לביצוע. התוצאה תוצג כאן לאחר השלמת הפעולה.' }}</p>
+        <button type="button" class="secondary" (click)="refresh()" [disabled]="api.pending() > 0">בדיקת עדכון</button>
+      </section>
+    }
+    @if (response(); as reply) {
+      <section class="service-response" aria-labelledby="response-heading">
+        <h2 id="response-heading">{{ reply.final ? 'המענה לפנייה' : 'עדכון מהטיפול בפנייה' }}</h2>
+        <p class="service-response-text" dir="auto">{{ reply.note }}</p>
+        <p class="service-meta">@if (reply.actor) { {{ reply.actor }} · }<bdi>{{ reply.at | date: 'dd.MM.yyyy HH:mm' }}</bdi></p>
+      </section>
+    }
+    <section class="service-section" aria-labelledby="details-heading">
+      <div class="service-section-heading"><h2 id="details-heading">פרטי הפנייה</h2>
+        @if (editable() || (c.canUpload && c.requiredDocuments.length)) {
+          <a class="button secondary" routerLink="/cases" [queryParams]="{ edit: c.id }">עריכת הפנייה</a>
+        }
+      </div>
+      <div class="service-fields">
+        @for (field of c.fields; track field.key) {
+          <div [class.span-all]="field.type === 'textarea'" [class.service-empty-value]="!c.data[field.key]">
+            <dl class="service-value"><dt>{{ field.label }}</dt><dd><bdi>{{ field.type === 'date' && c.data[field.key] ? (c.data[field.key] | date: 'dd.MM.yyyy') : c.data[field.key] || 'לא צוין' }}</bdi></dd></dl>
+          </div>
+        } @empty { <p class="service-help">אין פרטים נוספים לפנייה זו.</p> }
+      </div>
+    </section>
+    @if (c.requiredDocuments.length || c.documents.length) {
+      <section class="service-section" aria-labelledby="documents-heading">
+        <h2 #documentsHeading id="documents-heading" tabindex="-1">{{ c.requiredDocuments.length ? 'מסמכים להגשה' : 'מסמכים מצורפים' }}</h2>
+        @if (c.requiredDocuments.length) {
+          <p class="service-meta" role="status">{{ completedDocuments() }} מתוך {{ c.requiredDocuments.length }} הושלמו</p>
+          @if (!c.canUpload) { <p class="service-help">לא ניתן לצרף מסמכים עם ההרשאות שלך או בשלב הנוכחי של הפנייה.</p> }
+          @else if (completedDocuments() < c.requiredDocuments.length) { <p class="service-help">{{ c.requiredDocuments.length - completedDocuments() === 1 ? 'נותר מסמך חובה אחד להשלמה.' : 'נותרו ' + (c.requiredDocuments.length - completedDocuments()) + ' מסמכי חובה להשלמה.' }} תנאי ההגשה מוצגים בהמשך הטיפול.</p> }
+          @if (c.canUpload) { <a class="button secondary" routerLink="/cases" [queryParams]="{ edit: c.id, step: 'documents' }">עריכת מסמכים</a> }
+          <ul class="service-files">
+            @for (kind of c.requiredDocuments; track kind) {
+              <li [attr.data-document-kind]="kind">
+                <h3>{{ kind }} <small class="service-help">חובה</small></h3>
+                @if (documentFor(kind); as document) {
+                  <p>{{ document.valid ? 'הועלה' : 'תוקף המסמך פג — נדרשת העלאה חדשה' }}</p>
+                  <a [href]="'/api/cases/' + c.id + '/documents/' + document.id"><bdi>{{ document.fileName }}</bdi><span class="visually-hidden"> — הורדת {{ kind }}</span></a>
+                  <p class="service-meta">הועלה ב־<bdi>{{ document.uploadedAt | date: 'dd.MM.yyyy' }}</bdi>@if (document.validUntil) { · בתוקף עד <bdi>{{ document.validUntil | date: 'dd.MM.yyyy' }}</bdi> }</p>
+                } @else { <p class="service-help">טרם צורף מסמך</p> }
+              </li>
+            }
+          </ul>
+        }
+        @if (c.documents.length) {
+          <details class="service-disclosure">
+            <summary>כל הקבצים והגרסאות</summary>
+            <ul class="service-files">
+              @for (d of c.documents; track d.id) {
+                <li><strong>{{ d.kind }}</strong> · גרסה {{ d.number }}{{ d.current ? ' · נוכחית' : ' · קודמת' }}
+                  <a [href]="'/api/cases/' + c.id + '/documents/' + d.id"><bdi>{{ d.fileName }}</bdi><span class="visually-hidden"> — הורדת גרסה {{ d.number }} של {{ d.kind }}</span></a>
+                  <p class="service-meta"><bdi>{{ (d.size / 1024).toFixed(1) }} KB</bdi> · <bdi>{{ d.uploadedAt | date: 'dd.MM.yyyy' }}</bdi></p>
+                </li>
+              }
+            </ul>
+          </details>
+        }
+      </section>
+    }
+    @if (c.actions.length) {
+      <section class="service-section service-actions" aria-labelledby="actions-heading">
+        <h2 #actionsHeading id="actions-heading" tabindex="-1">המשך הטיפול</h2>
+        <details class="service-action-note" [open]="requiresActionNote()">
+          <summary>{{ requiresActionNote() ? 'מענה או הערה לפעולה' : 'הוספת מענה או הערה לפעולה' }}</summary>
+          <label class="visually-hidden" for="action-note">מענה או הערה לפעולה</label>
+          <textarea id="action-note" [formControl]="reason" maxlength="4000" aria-describedby="action-help" placeholder="מענה לפונה, פירוט החלטה או סיבת הפעולה"></textarea>
+          <p id="action-help" class="service-help">יש למלא מענה או סיבה כאשר הפעולה דורשת זאת.</p>
+          @if (api.session()?.user?.role !== 'Provider') {
+            <label class="check-row"><input type="checkbox" [formControl]="shareNote" aria-describedby="note-audience-help" />הצגת המענה או ההערה למגיש הבקשה</label>
+            <p id="note-audience-help" class="service-help">{{ shareNote.value ? 'הטקסט יוצג למגיש בעדכונים בפנייה.' : 'הטקסט יישמר כהערה פנימית ויוצג לעובדים בלבד.' }}</p>
+          }
+        </details>
+        <div class="service-action-list">
+          @for (action of c.actions; track action.key) {
+            <div>
+              <button [class.secondary]="action.key === 'cancel' || $index > 0" [attr.aria-describedby]="'action-help-' + action.key" [disabled]="!!action.blockedReason || api.pending() > 0 || (action.needsReason && !reason.value.trim())" (click)="act(action)">{{ action.label }}</button>
+              <p [id]="'action-help-' + action.key" class="service-help">
+                @if (action.toLabel) { שלב הבא: {{ stateLabel(action.toLabel) }}. }
+                @if (action.blockedReason) { {{ action.blockedReason }} }
+                @if (action.needsReason && !reason.value.trim()) { יש להזין מענה או סיבה לביצוע הפעולה. }
+              </p>
+            </div>
+          }
+        </div>
+      </section>
+    }
+    @if (c.canWrite && (api.session()?.user?.role === 'Reviewer' || api.session()?.user?.role === 'Admin')) {
+      <details class="service-disclosure">
+        <summary>אחריות לטיפול</summary>
+        <div class="service-disclosure-body">
+          <p class="service-help">יחידה מטפלת: {{ c.routing?.unitName || c.unit }}</p>
+          <label>מטפל<select [formControl]="assignee"><option value="">בחירת מטפל</option>@for (r of reviewers(); track r.id) { <option [value]="r.id">{{ r.name }}</option> }</select></label>
+          <div class="form-actions"><button class="secondary" [disabled]="!assignee.value || api.pending() > 0" (click)="assign()">עדכון שיוך</button></div>
+        </div>
+      </details>
+    }
+    @if (c.tasks.length && api.session()?.user?.role !== 'Provider') {
+      <details class="service-disclosure" [open]="mayReview()">
+        <summary>בדיקות מסמכים</summary>
+        <div class="service-disclosure-body">
+          @for (task of activeTasks(); track task.id) {
+            <div class="service-review">
+              <h3>{{ documentName(task.documentId) }}</h3>
+              <p>{{ task.result === 'passed' ? 'עבר בהצלחה' : task.result === 'failed' ? 'נדרשות השלמות' : task.status === 'open' ? 'ממתין לבדיקה' : 'הוחלף בסבב חדש' }}</p>
+              <p class="service-meta">יעד לטיפול: <bdi>{{ task.dueAt | date: 'dd.MM.yyyy' }}</bdi></p>
+              @if (task.note) { <p dir="auto">{{ task.note }}</p> }
+              @if (task.status === 'open' && mayReview()) {
+                <label>הערת בדיקה<textarea #reviewNote placeholder="יש לפרט במקרה שנדרשות השלמות" maxlength="4000"></textarea></label>
+                <p class="service-help">הערת הבדיקה פנימית. בקשת השלמה למגיש נשלחת באמצעות פעולת התהליך.</p>
+                <div class="form-actions"><button [disabled]="api.pending() > 0" (click)="review(task, 'passed', reviewNote.value)">המסמך תקין</button><button class="secondary" [disabled]="api.pending() > 0" (click)="review(task, 'failed', reviewNote.value)">נדרשות השלמות</button></div>
+              }
+            </div>
+          }
+        </div>
+      </details>
+    }
+    @if (c.history.length) {
+      <details class="service-disclosure">
+        <summary>{{ api.session()?.user?.role === 'Provider' ? 'עדכונים בפנייה' : 'היסטוריית טיפול' }}</summary>
+        <div class="service-disclosure-body">
+          <ul class="timeline service-history">
+            @for (h of c.history; track h.id) {
+              <li><strong>{{ h.action }}</strong>@if (h.note) { <p dir="auto">{{ h.note }}</p> }
+                <p class="service-meta">@if (h.actor) { {{ h.actor }} · }<bdi>{{ h.at | date: 'dd.MM.yyyy HH:mm' }}</bdi>@if (api.session()?.user?.role !== 'Provider') { · {{ h.isPublic ? 'אירוע מוצג למגיש; הפירוט כאן פנימי' : 'אירוע פנימי' }}@if (h.round) { · סבב {{ h.round }} } }</p>
+              </li>
+            }
+          </ul>
+        </div>
+      </details>
+    }
+    @if (api.session()?.user?.role === 'Admin') { @if (processDefinition(); as process) {
+      <details class="service-disclosure">
+        <summary>מידע על התהליך</summary>
+        <div class="service-disclosure-body">
+          <p class="service-help">השלבים והפעולות האפשריות בתהליך. הפעולות הזמינות לכם מוצגות בראש הפנייה.</p>
+          @if (visualDefinition(); as visual) {
+            <app-process-graph [definition]="visual" [selected]="graphState() || c.state" (stateSelected)="graphState.set($event)" (actionSelected)="graphState.set(process.transitions[$event].from)" />
+          }
+          <details class="service-text-map"><summary>רשימת השלבים והמעברים</summary>
+            @for (stage of process.states; track stage.key) {
+              <h3>{{ stateLabel(stage.label) }}{{ stage.key === c.state ? ' · השלב הנוכחי' : '' }}</h3>
+              @for (t of outgoing(stage.key); track $index) {
+                <p>{{ t.label }}: אל {{ stateName(t.to) }}{{ t.routes?.length ? ' · ברירת מחדל' : '' }}</p>
+                @for (route of t.routes ?? []; track route.key) { <p>{{ route.label }}: אל {{ stateName(route.to) }}</p> }
+              }
+            }
+          </details>
+        </div>
+      </details>
+    } }
+  } @else if (api.error()) {
+    <section class="service-section"><h1>לא ניתן להציג את הפנייה</h1><p>{{ api.error() }}</p><p class="service-help">אפשר לחזור לרשימת הפניות או לנסות שוב.</p><button class="secondary" (click)="ngOnInit()" [disabled]="api.pending() > 0">ניסיון נוסף</button></section>
+  } @else { <p role="status">טוען את פרטי הפנייה…</p> }
+</article>
+

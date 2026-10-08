@@ -1,0 +1,10 @@
+﻿process: הגשת מסמכים
+submit     effects=[newRound]
+correct    effects=[closeTasks]
+resubmit   effects=[newRound]
+recommend  effects=[]
+approve    effects=[sendMail]
+return     effects=[closeTasks]
+cancel     effects=[closeTasks]
+cancel     effects=[closeTasks]
+cancel     effects=[closeTasks]

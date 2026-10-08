@@ -1,0 +1,111 @@
+<article class="service-page service-list service-dashboard">
+<header class="service-heading service-header-row">
+  <div>
+    
+    <h1>תמונת מצב</h1>
+    <p class="muted">מעקב אחר הפניות והמשימות שבתחום האחריות שלך.</p>
+  </div>
+  @if (api.canCreate()) { <a class="button" routerLink="/cases" [queryParams]="{ new: 1 }">פתיחת פנייה</a> }
+</header>
+<section class="service-section" aria-labelledby="attention-heading"><h2 id="attention-heading">לתשומת לבך</h2>
+<div class="metrics service-summary">
+  @if (api.session()?.user?.role !== 'Provider') {
+  <article class="metric">
+    <span>משימות באיחור</span><strong>{{ report()?.overdueTasks ?? '—' }}</strong
+    ><small>עבר מועד הטיפול שנקבע</small>
+  </article>
+  <article class="metric">
+    <span>משימות פתוחות</span><strong>{{ report()?.openTasks ?? '—' }}</strong
+    ><small>ממתינות לבדיקת מסמכים</small>
+  </article>
+  }
+  <article class="metric">
+    <span>ממתינות להשלמות</span><strong>{{ count('corrections') }}</strong
+    ><small>להמשך טיפול נותן השירות</small>
+  </article>
+  <article class="metric">
+    <span>סך הפניות</span><strong>{{ report()?.total ?? '—' }}</strong
+    ><small>בתחום ההרשאה שלך</small>
+  </article>
+</div>
+</section>
+<section class="service-section">
+  <div class="panel-head">
+    <h2>פניות אחרונות</h2>
+    <a routerLink="/cases">לכל הפניות ←</a>
+  </div>
+  <div class="table-wrap">
+    <table class="service-table service-table-balanced service-table-reference">
+      <thead>
+        <tr>
+          <th scope="col">מספר פנייה</th>
+          <th scope="col">נושא ונותן שירות</th>
+          <th scope="col">מצב</th>
+          <th scope="col">עדכון אחרון</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of cases().slice(0, 5); track item.id) {
+          <tr>
+            <td class="row-identity"><bdi>#{{ item.id }}</bdi></td>
+            <td class="row-subject">
+              <a [routerLink]="['/cases', item.id]">{{ businessTitle(item.title) }}</a
+              ><small>{{ item.providerName }}</small>
+            </td>
+            <td class="row-status">
+              <span class="service-status" [attr.data-state]="item.state">{{ stateLabel(item.stateLabel) }}</span>
+            </td>
+            <td class="row-date"><span class="mobile-label">עדכון אחרון: </span>{{ item.updatedAt | date: 'dd.MM.yyyy' }}</td>
+
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="4" class="service-empty">אין עדיין פניות. אפשר להתחיל בפתיחת פנייה חדשה.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>
+<div class="grid-two">
+  <section class="service-section">
+    <h2>התפלגות הפניות</h2>
+    <div class="stack">
+      @for (state of report()?.states; track state.state) {
+        <div>
+          <div class="row">
+            <span>{{ stateName(state.state) }}</span
+            ><strong>{{ state.count }}</strong>
+          </div>
+          <div class="bar">
+            <span [style.width.%]="(state.count / (report()?.total || 1)) * 100"></span>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+  <section class="service-section">
+    <div class="panel-head">
+      <h2>עדכונים אחרונים</h2>
+      <button class="text-button" (click)="ngOnInit()">רענון</button>
+    </div>
+    <ul class="timeline">
+      @for (n of notifications().slice(0, 4); track n.id) {
+        <li>
+          <a [routerLink]="['/cases', n.caseId]">{{ businessTitle(n.message) }}</a>
+          <p>
+            <small>{{ n.at | date: 'dd.MM HH:mm' }}</small>
+          </p>
+        </li>
+      } @empty {
+        <li>
+          <strong>מוכנים להתחיל</strong>
+          <p class="muted">שינויים במצב פנייה יופיעו כאן לאחר עיבוד ההתראה.</p>
+        </li>
+      }
+    </ul>
+  </section>
+</div>
+
+</article>

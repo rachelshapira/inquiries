@@ -1,0 +1,17 @@
+{
+  "scenarioPassed": true,
+  "executionMethod": "Supported in-app Playwright interface, using checks/inquiry-flow.mjs",
+  "standardCliRunner": {
+    "status": "blocked",
+    "reason": "spawn EPERM starting worker; separate browser startup rejected by automatic approval review (sandbox_approval disabled)"
+  },
+  "mainInquiry": 6,
+  "isolatedInquiry": 7,
+  "checks": [
+    "Workflow configured through existing visual editor",
+    "External submission: number exists, configured workflow, Submitted start state, no employee transition exposed",
+    "Employee queue, allowed transition to InTreatment, wrong-state action unavailable, empty response cannot close",
+    "Response and final state persist after reload",
+    "External user opens same inquiry, sees persisted response, final status and workflow history"
+  ]
+}

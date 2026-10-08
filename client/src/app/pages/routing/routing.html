@@ -1,0 +1,565 @@
+<div class="service-page service-admin" [class.service-organization]="orgMode">
+@if (!embeddedProcess()) {
+  <div class="service-heading service-header-row">
+    <div>
+      
+      <h1>{{ orgMode ? 'הגדרות הארגון' : 'ניתוב לפי תהליך' }}</h1>
+      <p class="muted">
+        {{
+          orgMode
+            ? 'הגדירו את היחידות, את המשתמשים ואת תחומי הקריאה והכתיבה שלהם.'
+            : 'בחרו תהליך והגדירו לאיזו יחידה יגיעו הפניות שלו.'
+        }}
+      </p>
+    </div>
+    <a class="button secondary" [routerLink]="orgMode ? '/processes' : '/organization'">{{
+      orgMode ? 'תהליכים וחוקי ניתוב' : 'הגדרות הארגון'
+    }}</a>
+  </div>
+}
+@if (api.session()?.user?.role !== 'Admin' || api.session()?.user?.unit !== 'hq') {
+  <p class="note">ניהול המבנה הארגוני וכללי הניתוב מיועד למנהל המטה.</p>
+} @else {
+  <div class="section-tabs" role="group" aria-label="מסכי הגדרות">
+    @if (orgMode) {
+      <button
+        [class.active]="section() === 'units'"
+        [attr.aria-pressed]="section() === 'units'"
+        (click)="section.set('units')"
+      >
+        מבנה ארגוני
+      </button>
+      <button
+        [class.active]="section() === 'members'"
+        [attr.aria-pressed]="section() === 'members'"
+        (click)="section.set('members')"
+      >
+        משתמשים והרשאות
+      </button>
+    } @else {
+      <button
+        [class.active]="section() === 'rules'"
+        [attr.aria-pressed]="section() === 'rules'"
+        (click)="section.set('rules')"
+      >
+        כללי ניתוב
+      </button>
+      <button
+        [class.active]="section() === 'preview'"
+        [attr.aria-pressed]="section() === 'preview'"
+        (click)="section.set('preview')"
+      >
+        בדיקת ניתוב
+      </button>
+    }
+  </div>
+  @if (!orgMode && !embeddedProcess() && section() === 'rules') {
+    <section class="service-section process-routing-choice">
+      <label
+        >תהליך<select
+          #processChoice
+          [value]="processFilter()"
+          (change)="chooseProcess(processChoice.value)"
+        >
+          @for (p of processes(); track p.key) {
+            <option [value]="p.key" [selected]="p.key === processFilter()">
+              {{ p.definition.name }}
+            </option>
+          }
+        </select></label
+      >
+      <p>
+        הכללים כאן חלים רק על <strong>{{ processName() }}</strong
+        >. ללא התאמה, הפנייה מגיעה ליחידת נותן השירות.
+      </p>
+    </section>
+  }
+  @if (section() === 'rules') {
+    @if (editingRule()) {
+      <section class="service-section service-form" data-rule-editor>
+        <h2>{{ selectedRule() ? 'עריכת כלל' : 'כלל ניתוב חדש' }} · {{ processName() }}</h2>
+        <form [formGroup]="ruleForm" (ngSubmit)="saveRule()">
+          <div class="form-grid">
+            <label
+              >שם הכלל<input
+                formControlName="name"
+                maxlength="160"
+                [attr.aria-invalid]="
+                  ruleForm.controls.name.touched && ruleForm.controls.name.invalid
+                "
+                [attr.aria-describedby]="
+                  ruleForm.controls.name.touched && ruleForm.controls.name.invalid
+                    ? 'rule-name-error'
+                    : null
+                "
+              />
+              @if (ruleForm.controls.name.touched && ruleForm.controls.name.invalid) {
+                <span id="rule-name-error" class="field-error">יש להזין שם לכלל.</span>
+              }</label
+            ><label
+              >עדיפות <small>מספר נמוך נבדק קודם</small
+              ><input type="number" formControlName="priority" min="0" max="100000" />
+              @if (ruleForm.controls.priority.touched && ruleForm.controls.priority.invalid) {
+                <span class="field-error">העדיפות חייבת להיות בין 0 ל־100000.</span>
+              }</label
+            ><label
+              >יחידת יעד<select
+                formControlName="targetUnit"
+                [attr.aria-invalid]="
+                  ruleForm.controls.targetUnit.touched && ruleForm.controls.targetUnit.invalid
+                "
+              >
+                <option value="" disabled>בחירת יחידת יעד</option>
+                @for (u of units(); track u.key) {
+                  <option [value]="u.key" [selected]="u.key === ruleForm.controls.targetUnit.value">
+                    {{ path(u) }}
+                  </option>
+                }
+              </select>
+              @if (ruleForm.controls.targetUnit.touched && ruleForm.controls.targetUnit.invalid) {
+                <span class="field-error">יש לבחור יחידת יעד.</span>
+              }</label
+            ><label
+              >איך להתאים את התנאים<select formControlName="match">
+                <option value="all">כל התנאים מתקיימים</option>
+                <option value="any">לפחות תנאי אחד מתקיים</option>
+              </select></label
+            ><label class="check-row"
+              ><input type="checkbox" formControlName="enabled" />כלל פעיל</label
+            >
+          </div>
+          <hr class="divider" />
+          <div class="stack">
+            @for (c of conditions(); track $index; let i = $index) {
+              <div class="task-card">
+                <div class="form-grid">
+                  <label
+                    >שדה לבדיקה<select
+                      #conditionField
+                      [value]="c.field"
+                      (change)="condition(i, { field: conditionField.value })"
+                    >
+                      @for (f of fields(); track f.key) {
+                        <option [value]="f.key">{{ f.label }}</option>
+                      }
+                    </select></label
+                  ><label
+                    >תנאי<select
+                      #conditionOperator
+                      [value]="c.operator"
+                      (change)="condition(i, { operator: conditionOperator.value })"
+                    >
+                      @for (o of operators; track o.key) {
+                        <option [value]="o.key">{{ o.label }}</option>
+                      }
+                    </select></label
+                  ><label class="span-all"
+                    >ערך
+                    @if (c.operator === 'exists') {
+                      <select
+                        #existsValue
+                        [value]="c.value"
+                        (change)="condition(i, { value: existsValue.value })"
+                      >
+                        <option value="true" [selected]="c.value === 'true'">קיים ערך בשדה</option>
+                        <option value="false" [selected]="c.value === 'false'">השדה ריק</option>
+                      </select>
+                    } @else if (
+                      options(c.field).length &&
+                      (c.operator === 'equals' || c.operator === 'notEquals')
+                    ) {
+                      <select
+                        #choice
+                        [value]="c.value"
+                        (change)="condition(i, { value: choice.value })"
+                      >
+                        <option value="">בחירת ערך</option>
+                        @for (option of options(c.field); track option.value) {
+                          <option [value]="option.value" [selected]="option.value === c.value">
+                            {{ option.label }}
+                          </option>
+                        }
+                      </select>
+                    } @else {
+                      <input
+                        #conditionValue
+                        [value]="c.value"
+                        (input)="condition(i, { value: conditionValue.value })"
+                        maxlength="4000"
+                      />
+                      @if (c.operator === 'in') {
+                        <small>יש להפריד בין הערכים בפסיק.</small>
+                      }
+                    }
+                  </label>
+                </div>
+                <button type="button" class="text-button" (click)="removeCondition(i)">
+                  הסרת תנאי
+                </button>
+              </div>
+            }
+          </div>
+          <div class="form-actions">
+            <button type="button" class="secondary" (click)="addCondition()">＋ תנאי</button>
+          </div>
+          @if (!conditions().length) {
+            <p class="note">
+              כלל ללא תנאים במצב ״כל התנאים״ מתאים לכל פנייה. מומלץ לתת לו עדיפות גבוהה במספר.
+            </p>
+          }
+          <div class="form-actions">
+            <button [disabled]="api.pending() > 0">שמירת כלל</button
+            ><button type="button" class="secondary" (click)="editingRule.set(false)">ביטול</button>
+          </div>
+        </form>
+      </section>
+    }
+
+    <p class="muted">הכלל הפעיל הראשון שמתאים קובע את היעד. מספר עדיפות נמוך נבדק קודם.</p>
+    <section class="service-section">
+      <div class="panel-head">
+        <h2>כללי ניתוב · {{ processName() }}</h2>
+        <button (click)="openRule(null)">יצירת כלל</button>
+      </div>
+      <div class="toolbar">
+        <label
+          >הצגת כללים<select
+            #ruleStatus
+            [value]="ruleFilter()"
+            (change)="ruleFilter.set(ruleStatus.value)"
+          >
+            <option value="all">כל הכללים</option>
+            <option value="active">פעילים בלבד</option>
+            <option value="inactive">לא פעילים</option>
+          </select></label
+        ><span class="muted">{{ visibleRules().length }} כללים</span>
+      </div>
+      <div class="stack">
+        @for (r of visibleRules(); track r.id) {
+          <article class="service-rule-row">
+            <span class="priority-number"
+              ><span class="visually-hidden">עדיפות </span>{{ r.priority }}</span
+            >
+            <div class="routing-rule-content">
+              <div class="row">
+                <strong>{{ businessTitle(r.name) }}</strong
+                ><span class="service-status" [attr.data-state]="r.enabled ? 'approved' : 'draft'">{{
+                  r.enabled ? 'פעיל' : 'לא פעיל'
+                }}</span>
+              </div>
+              <p>
+                יעד: <strong>{{ unitName(r.targetUnit) }}</strong>
+              </p>
+              <small
+                >{{ r.spec.conditions.length }} תנאים ·
+                {{ r.spec.match === 'all' ? 'כל התנאים' : 'לפחות תנאי אחד' }} · גרסה
+                {{ r.version }}</small
+              >
+            </div>
+            <button class="secondary" (click)="openRule(r)" [attr.aria-label]="'עריכת ' + businessTitle(r.name)">
+              עריכה
+            </button>
+          </article>
+        } @empty {
+          <div class="service-empty">
+            <strong>אין כללים להצגה</strong>ללא כלל מתאים, הפנייה נשלחת ליחידת נותן השירות.
+          </div>
+        }
+      </div>
+    </section>
+  }
+  @if (!orgMode && sharedRules().length && section() === 'rules') {
+    <details class="service-disclosure">
+      <summary>כללים משותפים קיימים · {{ sharedRules().length }}</summary>
+      <p class="muted">
+        כללים שנוצרו לפני השיוך לתהליכים ממשיכים לפעול. עריכה ושמירה תשייך כלל לתהליך הנבחר.
+      </p>
+      @for (r of sharedRules(); track r.id) {
+        <div class="row">
+          <strong>{{ businessTitle(r.name) }}</strong
+          ><span>עדיפות {{ r.priority }} · {{ unitName(r.targetUnit) }}</span
+          ><button class="secondary" (click)="openRule(r)">שיוך לתהליך ועריכה</button>
+        </div>
+      }
+    </details>
+  }
+  @if (section() === 'units') {
+    <section class="panel legacy-hierarchy">
+      <div class="panel-head">
+        <h2>מבנה ארגוני</h2>
+        <button class="secondary" (click)="openUnit(null)">הוספת יחידה</button>
+      </div>
+      <p class="muted">
+        העץ קובע את גבולות הגישה. בחרו ״משתמשים והרשאות״ כדי להגדיר קריאה וכתיבה בתוך כל יחידה.
+      </p>
+      <div class="tree-list">
+        @for (node of tree(); track node.unit.key) {
+          <div class="tree-node" [style.--depth]="node.depth">
+            <div>
+              <strong>{{ node.unit.name }}</strong
+              ><small>{{
+                node.unit.key === 'hq' ? 'מטה הארגון' : 'כפופה ל־' + unitName(node.unit.parentKey)
+              }}</small>
+            </div>
+            <span class="org-members-count">{{ memberCount(node.unit.key) }} משתמשים פעילים</span>
+            <button
+              class="secondary"
+              (click)="showMembers(node.unit.key)"
+              [attr.aria-label]="'הרשאות ומשתמשים ב' + node.unit.name"
+            >
+              משתמשים והרשאות
+            </button>
+            <button
+              class="text-button"
+              (click)="openUnit(node.unit)"
+              [attr.aria-label]="'עריכת ' + node.unit.name"
+            >
+              עריכה
+            </button>
+          </div>
+        }
+      </div>
+      @if (editingUnit()) {
+        <hr class="divider" />
+        <form data-unit-editor [formGroup]="unitForm" (ngSubmit)="saveUnit()">
+          <div class="form-grid">
+            <label
+              >שם יחידה<input formControlName="name" maxlength="160" />
+              @if (unitForm.controls.name.touched && unitForm.controls.name.invalid) {
+                <span class="field-error">יש להזין שם ליחידה.</span>
+              }</label
+            ><label
+              >מזהה באנגלית<input
+                formControlName="key"
+                dir="ltr"
+                maxlength="80"
+                placeholder="north-haifa"
+              />
+              @if (unitForm.controls.key.touched && unitForm.controls.key.invalid) {
+                <span class="field-error"
+                  >יש להשתמש באותיות קטנות באנגלית, מספרים ומקפים. המזהה מתחיל באות.</span
+                >
+              }
+            </label>
+            @if (selectedUnit()?.key !== 'hq') {
+              <label
+                >יחידת אב<select formControlName="parentKey">
+                  @for (u of parentOptions(); track u.key) {
+                    <option [value]="u.key">{{ path(u) }}</option>
+                  }
+                </select></label
+              >
+            }
+          </div>
+          <div class="form-actions">
+            <button [disabled]="api.pending() > 0">שמירת יחידה</button
+            ><button type="button" class="secondary" (click)="editingUnit.set(false)">ביטול</button>
+          </div>
+        </form>
+      }
+    </section>
+  }
+  @if (section() === 'members') {
+    <section class="service-section">
+      <div class="panel-head">
+        <div>
+          <h2>משתמשים והרשאות</h2>
+          <p class="muted">תחום הגישה קובע אילו פניות נגישות; התפקיד קובע אילו פעולות מותר לבצע.</p>
+        </div>
+        <button (click)="openAccount(null)">הוספת משתמש</button>
+      </div>
+      <label
+        >יחידה להצגה<select
+          #memberChoice
+          [value]="memberUnit()"
+          (change)="showMembers(memberChoice.value)"
+        >
+          @for (u of units(); track u.key) {
+            <option [value]="u.key" [selected]="u.key === memberUnit()">{{ path(u) }}</option>
+          }
+        </select></label
+      >
+      <p class="note">
+        <strong>קריאה:</strong> צפייה בפניות ובמסמכים. <strong>כתיבה:</strong> עדכון נתונים, ביצוע
+        פעולות ושיוך מטפל, בכפוף לתפקיד ולשלב בתהליך. אין גישה לסניפים מקבילים. נותן שירות ניגש רק
+        לפניות של נותן השירות שאליו הוא משויך.
+      </p>
+      <div class="stack">
+        @for (a of members(); track a.id) {
+          <article class="service-account-row">
+            <div>
+              <strong>{{ a.name }}</strong>
+              <p>{{ api.role(a.role) }} · {{ a.active ? 'פעיל' : 'לא פעיל' }}</p>
+            </div>
+            <div>
+              <small>קריאה</small><strong>{{ accessLabel(a.readAccess) }}</strong>
+            </div>
+            <div>
+              <small>כתיבה</small><strong>{{ accessLabel(a.writeAccess) }}</strong>
+            </div>
+            <button
+              class="secondary"
+              (click)="openAccount(a)"
+              [attr.aria-label]="'עריכת הרשאות של ' + a.name"
+            >
+              עריכת הרשאות
+            </button>
+          </article>
+        } @empty {
+          <p class="service-empty">אין משתמשים המשויכים ליחידה זו.</p>
+        }
+      </div>
+    </section>
+    @if (editingAccount()) {
+      <section class="service-section service-form" data-account-editor aria-label="עריכת משתמש והרשאות">
+        <h2>{{ selectedAccount() ? 'עריכת משתמש' : 'משתמש חדש' }}</h2>
+        <form [formGroup]="accountForm" (ngSubmit)="saveAccount()">
+          <div class="form-grid">
+            <label>שם משתמש<input formControlName="name" maxlength="160" required /></label>
+            <label
+              >מזהה משתמש<input formControlName="id" maxlength="200" required dir="ltr" /><small
+                >בסביבה ארגונית: מזהה המשתמש ממערכת ההזדהות.</small
+              ></label
+            >
+            <label
+              >יחידה<select formControlName="unit">
+                @for (u of units(); track u.key) {
+                  <option [value]="u.key">{{ path(u) }}</option>
+                }
+              </select></label
+            >
+            <label
+              >תפקיד<select formControlName="role">
+                <option value="Reviewer">גורם מטפל</option>
+                <option value="Approver">גורם מאשר</option>
+                <option value="Admin">מנהל מערכת</option>
+                <option value="Provider">נותן שירות</option>
+              </select></label
+            >
+            <label
+              >הרשאת קריאה<select formControlName="readAccess" (change)="alignAccess()">
+                <option value="none">ללא הרשאה</option>
+                <option value="own">היחידה בלבד</option>
+                <option value="subtree">היחידה והיחידות שמתחתיה</option>
+              </select></label
+            >
+            <label
+              >הרשאת כתיבה<select formControlName="writeAccess">
+                <option value="none">ללא הרשאה — קריאה בלבד</option>
+                <option value="own" [disabled]="accountForm.controls.readAccess.value === 'none'">
+                  היחידה בלבד
+                </option>
+                <option
+                  value="subtree"
+                  [disabled]="accountForm.controls.readAccess.value !== 'subtree'"
+                >
+                  היחידה והיחידות שמתחתיה
+                </option>
+              </select></label
+            >
+            @if (accountForm.controls.role.value === 'Provider') {
+              <label
+                >נותן שירות משויך<select formControlName="providerId">
+                  <option [ngValue]="null">בחירת נותן שירות</option>
+                  @for (p of providers(); track p.id) {
+                    <option [ngValue]="p.id">{{ p.name }}</option>
+                  }
+                </select></label
+              >
+            }
+            <label class="check-row"
+              ><input type="checkbox" formControlName="active" />משתמש פעיל</label
+            >
+          </div>
+          @if (accountForm.touched && accountForm.invalid) {
+            <p class="field-error">יש להזין שם ומזהה משתמש.</p>
+          }
+          <div class="note">
+            <p>
+              <strong>תחום הקריאה:</strong>
+              {{
+                effectiveUnits(
+                  accountForm.controls.unit.value,
+                  accountForm.controls.readAccess.value
+                )
+              }}
+            </p>
+            <p>
+              <strong>תחום הכתיבה:</strong>
+              {{
+                effectiveUnits(
+                  accountForm.controls.unit.value,
+                  accountForm.controls.writeAccess.value
+                )
+              }}
+            </p>
+            <small>כתיבה מחייבת גם קריאה באותו תחום. השינוי חל מיד לאחר השמירה.</small>
+          </div>
+          <div class="form-actions">
+            <button [disabled]="api.pending() > 0">שמירת משתמש והרשאות</button
+            ><button type="button" class="secondary" (click)="editingAccount.set(false)">
+              ביטול
+            </button>
+          </div>
+        </form>
+      </section>
+    }
+  }
+  @if (section() === 'preview') {
+    <section class="service-section">
+      <h2>בדיקת ניתוב לפני פתיחת פנייה</h2>
+      <p class="muted">הבדיקה משתמשת בכללים השמורים ואינה יוצרת פנייה.</p>
+      <form [formGroup]="simulationForm" (ngSubmit)="simulate()">
+        <div class="form-grid">
+          <label
+            >נותן שירות<select formControlName="providerId">
+              @for (p of providers(); track p.id) {
+                <option [ngValue]="p.id">{{ p.name }}</option>
+              }
+            </select></label
+          ><label
+            >סוג פנייה<select formControlName="processVersionId">
+              @for (p of previewProcesses(); track p.id) {
+                <option [ngValue]="p.id">{{ p.definition.name }}</option>
+              }
+            </select></label
+          ><label class="span-all"
+            >נושא<input formControlName="title" maxlength="160" />
+            @if (simulationForm.controls.title.touched && simulationForm.controls.title.invalid) {
+              <span class="field-error">יש להזין נושא לבדיקה.</span>
+            }
+          </label>
+        </div>
+        <div [formGroup]="simulationData" class="form-grid" style="margin-top: 18px">
+          @for (f of previewFields(); track f.key) {
+            <label
+              >{{ f.label
+              }}<input
+                [type]="f.type === 'textarea' ? 'text' : f.type"
+                [formControlName]="f.key"
+                maxlength="4000"
+            /></label>
+          }
+        </div>
+        <div class="form-actions">
+          <button class="secondary" [disabled]="api.pending() > 0">בדיקת יעד</button>
+        </div>
+      </form>
+      @if (preview(); as p) {
+        <div class="note" role="status">
+          <strong>יחידת היעד: {{ p.unitName }}</strong>
+          <p>
+            כלל: {{ p.ruleName }}
+            @if (p.ruleVersion) {
+              · גרסה {{ p.ruleVersion }}
+            }
+          </p>
+          {{ p.reason }}
+        </div>
+      }
+    </section>
+  }
+}
+
+</div>
+

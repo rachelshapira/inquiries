@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "checks": [
+    "demo-service.pdf: exact uploaded bytes downloaded by owner; outsider rejected",
+    "demo-invoice.pdf: exact uploaded bytes downloaded by owner; outsider rejected"
+  ]
+}

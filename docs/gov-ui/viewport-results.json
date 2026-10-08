@@ -1,0 +1,23 @@
+[
+  {
+    "name": "desktop",
+    "client": 1425,
+    "columns": "512px 512px",
+    "scroll": 1425,
+    "viewport": 1440
+  },
+  {
+    "name": "tablet",
+    "client": 753,
+    "columns": "340.333px 340.333px",
+    "scroll": 753,
+    "viewport": 768
+  },
+  {
+    "name": "mobile",
+    "client": 360,
+    "columns": "328px",
+    "scroll": 360,
+    "viewport": 375
+  }
+]
